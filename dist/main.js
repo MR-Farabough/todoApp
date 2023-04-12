@@ -1,0 +1,1 @@
+(()=>{"use strict";function e(e){let t=[`${(new Date).getUTCMonth()}`,`${(new Date).getUTCDate()}`,`${(new Date).getUTCFullYear()}`];convertDate;let a="12 / 12 / 2023"-t;console.log("12 / 12 / 2023",t,a)}(e(),{daysLeft:e}).daysLeft()})();
