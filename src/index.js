@@ -6,7 +6,7 @@ import daysLeft from './dateHandling/daysLeft.js';
 
 const app = (() => {
 	let dueDate = [2, 2, 2030];
-	daysLeft(dueDate);
+	console.log(daysLeft(dueDate));
 	return { daysLeft };
 })();
 
