@@ -1,5 +1,7 @@
-import schoolTask from './schoolTask.js';
-import personalTask from './personalTask.js';
+import {
+	schoolTask,
+	personalTask,
+} from '../src/taskHandling/taskConstructor.js';
 import daysLeft from './dateHandling/daysLeft.js';
 
 const app = (() => {
