@@ -14,5 +14,9 @@ export default function daysLeft(dueDate) {
 		deadline.dueDate,
 		yearsBetweenDates()
 	);
+	let dayCount = 0;
+	for (let index = 0; index < yearArr.length; index++) {
+		// console.log(yearArr[index].May);
+	}
 	return yearArr;
 }

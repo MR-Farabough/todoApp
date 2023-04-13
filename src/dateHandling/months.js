@@ -40,9 +40,8 @@ export default function mapMonths(startingDateArr, endingDateArr, yearCount) {
 			const startingNumber = startingDateArr[i] - 1;
 			for (let index = 0; index < startingNumber; index++) {
 				delete months[month[index]];
-				// Only the remaing days left in the month
 				let indexedStartingMonth = months[month[index + 1]];
-				indexedStartingMonth = startingDateArr[1];
+				indexedStartingMonth = indexedStartingMonth - startingDateArr[1];
 				months[month[index + 1]] = indexedStartingMonth;
 			}
 		}
@@ -57,17 +56,6 @@ export default function mapMonths(startingDateArr, endingDateArr, yearCount) {
 				months[month[index + 1]] = indexedEndingMonth;
 			}
 		}
-
-		// // This logic is broken, but it needs to act similiarly to the above one
-		// if (-i == (month.reverse(), month.length - endingDateArr[1])) {
-		// 	for (let i = 0; i < month.length - endingDateArr[1]; i++) {
-		// 		console.log(month[i]);
-		// 		delete months[month[-i]];
-		// 		let indexedEndingMonth = months[month[i]];
-		// 		indexedEndingMonth = endingDateArr[1] - indexedEndingMonth;
-		// 		months[month[i + 1]] = indexedEndingMonth;
-		// 	}
-		// }
 	}
 	return yearArr;
 }
