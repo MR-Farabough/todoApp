@@ -1,6 +1,20 @@
 import isLeapYear from './leapYear.js';
-export default function mapMonths(startingYear, yearCount) {
+export default function mapMonths(startingDateArr, endingDateArr, yearCount) {
 	let yearArr = [];
+	let month = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December',
+	];
 	for (let i = 0; i < yearCount; i++) {
 		const months = {
 			January: 31,
@@ -16,12 +30,35 @@ export default function mapMonths(startingYear, yearCount) {
 			November: 30,
 			December: 31,
 		};
-		if (isLeapYear(startingYear + i)) {
+		if (startingDateArr[1] + i === startingDateArr[1]) {
+			const startingNumber = startingDateArr[i] - 1;
+			for (let index = 0; index < startingNumber; index++) {
+				delete months[month[index]];
+				// Only the remaing days left in the month
+				let indexedStartingMonth = months[month[index + 1]];
+				indexedStartingMonth = indexedStartingMonth - startingDateArr[1];
+				months[month[index + 1]] = indexedStartingMonth;
+			}
+		}
+
+		// This logic is broken, but it needs to act similiarly to the above one
+		if (i === month.length - endingDateArr[1]) {
+			month.reverse();
+			for (let i = 0; i < month.length - endingDateArr[1]; i++) {
+				console.log(month[i]);
+				delete months[month[i]];
+				let indexedEndingMonth = months[month[i]];
+				indexedEndingMonth = endingDateArr[1] - indexedEndingMonth;
+				months[month[i + 1]] = indexedEndingMonth;
+			}
+		}
+
+		if (isLeapYear(startingDateArr[2] + i)) {
 			months.February = 29;
 			yearArr.push(months);
 		} else {
 			yearArr.push(months);
 		}
 	}
-	return yearArr;
+	return console.log(yearArr);
 }

@@ -9,6 +9,10 @@ export default function daysLeft(dueDate) {
 		const curDateYear = curDate.date[2];
 		return deadlineYear - curDateYear;
 	};
-	const yearArr = mapMonths(curDate.date[2], yearsBetweenDates());
+	const yearArr = mapMonths(
+		curDate.date,
+		deadline.dueDate,
+		yearsBetweenDates()
+	);
 	return yearArr;
 }
