@@ -3,7 +3,10 @@ export default function getTime() {
 	let time = '';
 	let hours = new Date().getHours();
 	const minutes = new Date().getMinutes();
-	const seconds = new Date().getSeconds();
+	let seconds = new Date().getSeconds();
+	if (seconds < 10) {
+		seconds = `0${seconds}`;
+	}
 	time = `${hours}:${minutes}:${seconds}`;
 	clockEL.textContent = time;
 	setTimeout(getTime, 1000);
