@@ -2,9 +2,9 @@ import errorLog from '../errorLogger.js';
 
 export default function convertDate() {
 	let date = [
-		new Date().getUTCMonth() + 1,
-		new Date().getUTCDate(),
-		new Date().getUTCFullYear(),
+		new Date().getMonth() + 1,
+		new Date().getDate(),
+		new Date().getFullYear(),
 	];
 	return { date };
 }

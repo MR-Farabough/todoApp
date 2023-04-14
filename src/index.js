@@ -2,12 +2,16 @@ import {
 	schoolTask,
 	personalTask,
 } from '../src/taskHandling/taskConstructor.js';
-import daysLeft from './dateHandling/daysLeft.js';
+import { daysLeft, weeksLeft, fullDateLeft } from './dateHandling/daysLeft.js';
 
 const app = (() => {
-	let dueDate = [2, 2, 2025];
-	console.log(daysLeft(dueDate));
-	return { daysLeft };
+	let dueDate = [12, 18, 2030];
+	console.log(`Days Left: ${daysLeft(dueDate)}`);
+	console.log(`Weeks Left: ${weeksLeft(dueDate)}`);
+	console.log('Full Format:', fullDateLeft(dueDate));
+	return { daysLeft, weeksLeft, fullDateLeft };
 })();
 
 app.daysLeft;
+app.weeksLeft;
+app.fullDateLeft;
