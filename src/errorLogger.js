@@ -1,3 +1,3 @@
 export default function errorLog(message) {
-	console.log(message);
+	console.error(message);
 }

@@ -10,15 +10,15 @@ export default function convertDate() {
 }
 
 export function convertDueDate(dueDate) {
-	if (
-		typeof dueDate != 'object' ||
-		dueDate[0] > 12 ||
-		dueDate[0] < new Date().getMonth() + 1 ||
-		(dueDate[1] < new Date().getDate() &&
-			dueDate[0] == new Date().getMonth() + 1) ||
-		dueDate[2] < new Date().getFullYear()
+	if (dueDate[0] > 12) {
+		return errorLog(`${dueDate[0]} is not a valid month`);
+	} else if (
+		dueDate[1] < new Date().getDate() &&
+		dueDate[0] == new Date().getMonth() + 1
 	) {
-		return errorLog(`${dueDate} is not a valid entry`);
+		return errorLog('date is less than current date');
+	} else if (dueDate[2] < new Date().getFullYear()) {
+		return errorLog(`${dueDate[2]} is less than the current year`);
 	} else {
 		return { dueDate };
 	}
