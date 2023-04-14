@@ -33,6 +33,11 @@ function remainingDays(dueDate) {
 		for (let index = 0; index < month.length; index++) {
 			if (yearArr[i][month[index]] === undefined) {
 				daysBetween += 0;
+			} else if (
+				dueDate[0] == new Date().getMonth() + 1 &&
+				dueDate[2] == new Date().getFullYear()
+			) {
+				daysBetween = dueDate[1] - new Date().getDate();
 			} else {
 				daysBetween += yearArr[i][month[index]];
 			}
