@@ -11,34 +11,17 @@ html {
 	border-bottom: 1px solid black;
 }
 
-.header-icons {
-	display: grid;
-	grid-template-columns: repeat(2 80px);
-	grid-template-rows: repeat(2 80px);
-	border-right: 1px solid black;
-}
-
 .home-icon {
 	grid-row: 1 / 2;
 	grid-column: 1 / 3;
 	width: 50px;
 	height: 50px;
 	margin-bottom: 5px;
-	margin-left: 25px;
+	margin-left: 50px;
 }
 
-.personal-icon {
-	grid-row: 2 / 3;
-	grid-column: 1 / 2;
-	width: 50px;
-	height: 50px;
-}
-
-.school-icon {
-	grid-row: 2 / 3;
-	grid-column: 2 / 3;
-	width: 50px;
-	height: 50px;
+.category-buttons {
+	margin: 5px;
 }
 
 .header-corner {
