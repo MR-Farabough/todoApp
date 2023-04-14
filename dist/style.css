@@ -8,13 +8,14 @@ html {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	border-bottom: 1px solid black;
 }
 
 .header-icons {
 	display: grid;
-	grid-template-columns: repeat(2 50px);
-	grid-template-rows: repeat(2 50px);
-	margin: 5px;
+	grid-template-columns: repeat(2 80px);
+	grid-template-rows: repeat(2 80px);
+	border-right: 1px solid black;
 }
 
 .home-icon {
@@ -38,4 +39,28 @@ html {
 	grid-column: 2 / 3;
 	width: 50px;
 	height: 50px;
+}
+
+.header-corner {
+	width: 150px;
+}
+
+.page-location {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	margin: 0px;
+	height: 57.5px;
+}
+
+.clock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-left: 1px solid black;
+	margin: 0px;
+	margin: auto;
+	height: 57.5px;
 }
