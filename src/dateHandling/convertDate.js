@@ -18,7 +18,7 @@ export function convertDueDate(dueDate) {
 	) {
 		return errorLog('date is less than current date');
 	} else if (
-		dueDate[0] < new Date().getMonth() &&
+		dueDate[0] < new Date().getMonth() + 1 &&
 		dueDate[2] == new Date().getFullYear()
 	) {
 		return errorLog(`${dueDate[0]} is less than the current month`);
