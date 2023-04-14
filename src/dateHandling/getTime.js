@@ -2,11 +2,6 @@ export default function getTime() {
 	const clockEL = document.querySelector('.clock');
 	let time = '';
 	let hours = new Date().getHours();
-	if (hours > 12) {
-		hours = hours - 12;
-	} else {
-		return;
-	}
 	const minutes = new Date().getMinutes();
 	const seconds = new Date().getSeconds();
 	time = `${hours}:${minutes}:${seconds}`;
