@@ -5,7 +5,7 @@ import {
 import { daysLeft, weeksLeft, fullDateLeft } from './dateHandling/daysLeft.js';
 
 const app = (() => {
-	let dueDate = [12, 18, 2030];
+	let dueDate = [4, 18, 2023];
 	console.log(`Days Left: ${daysLeft(dueDate)}`);
 	console.log(`Weeks Left: ${weeksLeft(dueDate)}`);
 	console.log('Full Format:', fullDateLeft(dueDate));
