@@ -2,10 +2,16 @@ export default function getTime() {
 	const clockEL = document.querySelector('.clock');
 	let time = '';
 	let hours = new Date().getHours();
-	const minutes = new Date().getMinutes();
+	let minutes = new Date().getMinutes();
 	let seconds = new Date().getSeconds();
 	if (seconds < 10) {
 		seconds = `0${seconds}`;
+	}
+	if (hours < 10) {
+		hours = `0${hours}`;
+	}
+	if (minutes < 10) {
+		minutes = `0${minutes}`;
 	}
 	time = `${hours}:${minutes}:${seconds}`;
 	clockEL.textContent = time;
