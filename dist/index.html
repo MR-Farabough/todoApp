@@ -36,20 +36,38 @@
 				</div>
 				<div class="modal-body">
 					<form action="#" method="get" id="task-modal">
-						<label for="task-modal">Task</label>
-						<input type="text" />
-						<label for="task-modal">Note</label>
-						<input type="text" />
-						<label for="task-modal">Category</label>
-						<input type="text" />
-						<label for="task-modal">Due Date</label>
-						<input type="date" />
-						<label for="task-modal">Priority</label>
-						<input type="radio" name="Priority" id="URGENT" />
-						<input type="radio" name="Priority" id="Important" />
-						<input type="radio" name="Priority" id="" />
+						<div>
+							<label for="task-modal">Task</label>
+							<input type="text" />
+						</div>
+						<div>
+							<label for="task-modal">Note</label>
+							<input type="text" />
+						</div>
+						<div>
+							<label for="task-modal">Category</label>
+							<input type="text" />
+						</div>
+						<div>
+							<label for="task-modal">Due Date</label>
+							<input type="date" />
+						</div>
+						<div>
+							<label for="Urgent">Urgent</label>
+							<input type="radio" name="Priority" id="Urgent" />
+							<label for="Important">Important</label>
+							<input type="radio" name="Priority" id="Important" />
+							<label for="Not-Prioritized">Not Prioritized</label>
+							<input type="radio" name="Priority" id="Not-Prioritized" />
+						</div>
 						<label for="task-modal">Type</label>
-						<input type="radio" name="" id="" />
+						<select name="Type" id="type">
+							<option value="Task">Task</option>
+							<option value="Homework">Homework</option>
+							<option value="Assignment">Assignment</option>
+							<option value="Exam">Exam</option>
+							<option value="Final">Final</option>
+						</select>
 						<button type="submit" id="submit-task">Add Task</button>
 					</form>
 				</div>

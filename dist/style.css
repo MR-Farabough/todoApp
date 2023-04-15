@@ -84,7 +84,7 @@ html {
 	margin: 0px;
 }
 
-.modal-header .close-button {
+.modal-header #close-button {
 	cursor: pointer;
 	border: none;
 	outline: none;
