@@ -47,7 +47,7 @@ export function getDateFromDom() {
 	for (let index = 0; index < 4; index++) {
 		year += dateArr[index];
 	}
-	fullYearArr.push(month, day, year);
+	fullYearArr.push(parseInt(month), parseInt(day), parseInt(year));
 	return fullYearArr;
 }
 
