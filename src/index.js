@@ -50,4 +50,8 @@ submitBTN.addEventListener('click', (e) => {
 	closeModal(modal, taskModal);
 });
 
-// TODO Form Submission to TASK OBJ
+// TODO Form Submission Validation
+// TODO Store Tasks in an ARRAY
+// TODO Save taskArr to LocalStorage
+// TODO Write (LocalStorage || Array) to text file
+// TODO Decide when to save everything incase of a crash
