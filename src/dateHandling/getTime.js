@@ -4,6 +4,9 @@ export default function getTime() {
 	let hours = new Date().getHours();
 	let minutes = new Date().getMinutes();
 	let seconds = new Date().getSeconds();
+	if (hours > 12) {
+		hours = hours - 12;
+	}
 	if (seconds < 10) {
 		seconds = `0${seconds}`;
 	}
