@@ -3,8 +3,8 @@ import mapMonths from './months.js';
 
 function remainingDays(dueDate) {
 	let daysBetween = 0;
-	let curDate = new convertDate();
-	let deadline = new convertDueDate(dueDate);
+	let curDate = convertDate();
+	let deadline = convertDueDate(dueDate);
 	const yearsBetweenDates = () => {
 		const deadlineYear = deadline.dueDate[2];
 		const curDateYear = curDate.date[2];
