@@ -59,11 +59,11 @@ export function weeksLeft(dueDate) {
 		weeks = weeks - (weeks % 1);
 	}
 	if (days > 0) {
-		weeks = `${weeks} and ${days} days`;
+		weeks = `${weeks} weeks and ${days} days`;
 	}
 	return weeks;
 }
-
+// TODO This function needs to return x years x months x days left
 export function fullDateLeft(dueDate) {
 	let curDate = new convertDate();
 	let deadline = new convertDueDate(dueDate);
