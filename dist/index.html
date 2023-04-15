@@ -24,7 +24,37 @@
 			</div>
 		</div>
 		<div class="left-column">
-			<button class="new-task-button">+ Add Task</button>
+			<button data-modal-target="#modal" id="new-task-button">
+				+ Add Task
+			</button>
+			<div class="modal" id="modal">
+				<div class="modal-header">
+					<div class="title">
+						<h4>New Task</h4>
+					</div>
+					<button data-close-button id="close-button">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form action="#" method="get" id="task-modal">
+						<label for="task-modal">Task</label>
+						<input type="text" />
+						<label for="task-modal">Note</label>
+						<input type="text" />
+						<label for="task-modal">Category</label>
+						<input type="text" />
+						<label for="task-modal">Due Date</label>
+						<input type="date" />
+						<label for="task-modal">Priority</label>
+						<input type="radio" name="Priority" id="URGENT" />
+						<input type="radio" name="Priority" id="Important" />
+						<input type="radio" name="Priority" id="" />
+						<label for="task-modal">Type</label>
+						<input type="radio" name="" id="" />
+						<button type="submit" id="submit-task">Add Task</button>
+					</form>
+				</div>
+			</div>
+			<div id="overlay"></div>
 		</div>
 	</body>
 </html>
