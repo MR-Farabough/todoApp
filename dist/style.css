@@ -113,3 +113,10 @@ html {
 	opacity: 1;
 	pointer-events: all;
 }
+
+#note-entry {
+	min-width: 178px;
+	max-width: 450px;
+	max-height: 450px;
+	min-height: 15px;
+}
