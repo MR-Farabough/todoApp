@@ -51,7 +51,17 @@ submitBTN.addEventListener('click', (e) => {
 });
 
 // TODO Form Submission Validation
+// TODO Display card in specific section
+// TODO A touch of CSS and layout correction
 // TODO Store Tasks in an ARRAY
+// TODO Add a blank task to verify the days left will change
 // TODO Save taskArr to LocalStorage
+// TODO Decide how to retrieve tasks so that it will display information
 // TODO Write (LocalStorage || Array) to text file
+// TODO Calendar display functionality
+// TODO Category change based on button input (css to show which category you are in)
+// TODO Create 'AI' that will change task priority based on parameters (due date, category (school prioritized), type of task, etc)
+// TODO Upcoming events functionality
+// TODO REMINDER functionality
+// TODO ASSIGNMENTS for school. Important events for personal
 // TODO Decide when to save everything incase of a crash
