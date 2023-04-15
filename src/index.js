@@ -1,7 +1,5 @@
-import {
-	schoolTask,
-	personalTask,
-} from '../src/taskHandling/taskConstructor.js';
+import Task from '../src/taskHandling/taskConstructor.js';
+import { convertDueDate } from './dateHandling/convertDate.js';
 import { daysLeft, weeksLeft, fullDateLeft } from './dateHandling/daysLeft.js';
 import getTime from './dateHandling/getTime.js';
 import { openModal, closeModal } from './modal/modal.js';
@@ -46,7 +44,17 @@ function getNoteFromDom() {
 	return taskNote;
 }
 // Category
-function getCategoryFromDom() {}
+function getCategoryFromDom() {
+	const schoolBTN = document.getElementById('School');
+	const personalBTN = document.getElementById('Personal');
+	if (schoolBTN.checked) {
+		return 'School';
+	} else if (personalBTN.checked) {
+		return 'Personal';
+	} else {
+		return 'Personal';
+	}
+}
 // Date Functionality
 function getDateFromDom() {
 	const dateEntry = document.getElementById('date-entry');
@@ -91,18 +99,23 @@ function getPriorityFromDom() {
 	}
 }
 // Type
-
+function getTypeFromDom() {
+	const type = document.getElementById('type').value;
+	return type;
+}
 // Constructor for tasks
 
 submitBTN.addEventListener('click', (e) => {
 	e.preventDefault();
 
-	const task = new personalTask(
+	const task = new Task(
 		getTaskFromDom(),
 		getNoteFromDom(),
 		getDateFromDom(),
 		getPriorityFromDom(),
-		'Task'
+		getTypeFromDom(),
+		weeksLeft(getDateFromDom()),
+		getCategoryFromDom()
 	);
 	getDateFromDom();
 	console.log(task);
