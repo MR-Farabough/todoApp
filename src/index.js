@@ -1,6 +1,7 @@
 import Task from '../src/taskHandling/taskConstructor.js';
 import { daysLeft, weeksLeft, fullDateLeft } from './dateHandling/daysLeft.js';
 import getTime from './dateHandling/getTime.js';
+import formValidation from './modal/formValidation.js';
 import { openModal, closeModal } from './modal/modal.js';
 import {
 	getTaskFromDom,
@@ -36,17 +37,7 @@ closeModalButton.addEventListener('click', () => {
 
 submitBTN.addEventListener('click', (e) => {
 	e.preventDefault();
-
-	const task = new Task(
-		getTaskFromDom(),
-		getNoteFromDom(),
-		getDateFromDom(),
-		getPriorityFromDom(),
-		getTypeFromDom(),
-		weeksLeft(getDateFromDom()),
-		getCategoryFromDom()
-	);
-	console.log(task);
+	formValidation();
 	closeModal(modal, taskModal);
 });
 

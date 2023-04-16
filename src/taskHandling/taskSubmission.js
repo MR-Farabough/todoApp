@@ -19,15 +19,13 @@ export function getCategoryFromDom() {
 		return 'School';
 	} else if (personalBTN.checked) {
 		return 'Personal';
-	} else {
-		return 'Personal';
 	}
 }
 // Date Functionality
 export function getDateFromDom() {
 	const dateEntry = document.getElementById('date-entry');
 	const dateArr = [];
-	const fullYearArr = [];
+	let fullYearArr = [];
 	let year = '';
 	let month = '';
 	let day = '';
@@ -47,7 +45,15 @@ export function getDateFromDom() {
 	for (let index = 0; index < 4; index++) {
 		year += dateArr[index];
 	}
-	fullYearArr.push(parseInt(month), parseInt(day), parseInt(year));
+	if (
+		year == 'undefinedundefinedundefinedundefined' ||
+		month == undefined ||
+		day == undefined
+	) {
+		fullYearArr = [];
+	} else {
+		fullYearArr.push(parseInt(month), parseInt(day), parseInt(year));
+	}
 	return fullYearArr;
 }
 
