@@ -1,16 +1,8 @@
-import Task from '../src/taskHandling/taskConstructor.js';
-import { daysLeft, weeksLeft, fullDateLeft } from './dateHandling/daysLeft.js';
 import getTime from './dateHandling/getTime.js';
 import formValidation from './modal/formValidation.js';
 import { openModal, closeModal } from './modal/modal.js';
-import {
-	getTaskFromDom,
-	getNoteFromDom,
-	getDateFromDom,
-	getPriorityFromDom,
-	getTypeFromDom,
-	getCategoryFromDom,
-} from './taskHandling/taskSubmission.js';
+import addToStorage from './storage/localStorage.js';
+
 getTime();
 
 // Modal Control
@@ -38,13 +30,13 @@ closeModalButton.addEventListener('click', () => {
 submitBTN.addEventListener('click', (e) => {
 	e.preventDefault();
 	formValidation();
+	addToStorage(formValidation());
 	closeModal(modal, taskModal);
 });
 
-// TODO Form Submission Validation
+// TODO Form Submission Validation CSS
 // TODO Display card in specific section
 // TODO A touch of CSS and layout correction
-// TODO Store Tasks in an ARRAY
 // TODO Add a blank task to verify the days left will change
 // TODO Save taskArr to LocalStorage
 // TODO Decide how to retrieve tasks so that it will display information

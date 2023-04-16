@@ -8,31 +8,30 @@ import {
 } from '../taskHandling/taskSubmission.js';
 import { weeksLeft } from '../dateHandling/daysLeft.js';
 import errorLog from '../errorLogger.js';
-const undefinedSTR = 'undefinedundefinedundefinedundefined';
+import Task from '../taskHandling/taskConstructor.js';
 
 export default function formValidation() {
 	if (getTaskFromDom().length < 1) {
-		errorLog('Task Name invalid');
-	}
-	if (getDateFromDom().length < 1) {
-		errorLog('Must enter Date');
+		return errorLog('Task Name invalid');
 	}
 	if (getCategoryFromDom() == undefined) {
-		errorLog('Category must be filled out');
+		return errorLog('Category must be filled out');
 	}
 	if (
-		getDateFromDom()[0] == undefinedSTR ||
-		getDateFromDom()[1] == undefinedSTR ||
-		getDateFromDom()[2] == undefinedSTR
+		getDateFromDom()[0] == undefined ||
+		getDateFromDom()[1] == undefined ||
+		getDateFromDom()[2] == undefined
 	) {
-		errorLog('Date test');
+		return errorLog('Must enter Date');
 	}
 	if (
-		getTaskFromDom().length > 5 &&
-		getDateFromDom().length > 5 &&
+		getTaskFromDom().length > 1 &&
+		getDateFromDom()[0] != undefined &&
+		getDateFromDom()[1] != undefined &&
+		getDateFromDom()[2] != undefined &&
 		getCategoryFromDom() != undefined
 	) {
-		return (task = new Task(
+		const obj = new Task(
 			getTaskFromDom(),
 			getNoteFromDom(),
 			getDateFromDom(),
@@ -40,6 +39,7 @@ export default function formValidation() {
 			getTypeFromDom(),
 			weeksLeft(getDateFromDom()),
 			getCategoryFromDom()
-		));
+		);
+		return obj;
 	}
 }
