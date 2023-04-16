@@ -53,13 +53,23 @@ export function daysLeft(dueDate) {
 export function weeksLeft(dueDate) {
 	let weeks = remainingDays(dueDate) / 7;
 	let days = 0;
-	// Checks if there is not a full week
 	if (weeks % 1 != 0) {
 		days = ((weeks % 1) * 7).toFixed();
 		weeks = weeks - (weeks % 1);
 	}
-	if (days > 0) {
+	if (weeks == 1 && days == 0) {
+		weeks = `${weeks} week`;
+	} else if (weeks > 1 && days == 0) {
+		weeks = `${weeks} weeks`;
+	}
+	if (days > 1 && (weeks > 1 || weeks < 1)) {
 		weeks = `${weeks} weeks and ${days} days`;
+	} else if (days == 1 && (weeks > 1 || weeks < 1)) {
+		weeks = `${weeks} weeks and ${days} day`;
+	} else if (days > 1 && weeks == 1) {
+		weeks = `${weeks} week and ${days} days`;
+	} else if (days == 1 && weeks == 1) {
+		weeks = `${weeks} week and ${days} day`;
 	}
 	return weeks;
 }
