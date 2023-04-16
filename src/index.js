@@ -40,12 +40,10 @@ submitBTN.addEventListener('click', (e) => {
 	}
 });
 
-// TODO Updated StorageArr
 // TODO Form Submission Validation CSS
 // TODO Display card in specific section
 // TODO A touch of CSS and layout correction
 // TODO Add a blank task to verify the days left will change
-// TODO Save taskArr to LocalStorage
 // TODO Decide how to retrieve tasks so that it will display information
 // TODO Write (LocalStorage || Array) to text file
 // TODO Calendar display functionality
