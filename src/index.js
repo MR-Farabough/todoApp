@@ -35,6 +35,7 @@ submitBTN.addEventListener('click', (e) => {
 	closeModal(modal, taskModal);
 });
 
+// TODO Updated StorageArr
 // TODO Form Submission Validation CSS
 // TODO Display card in specific section
 // TODO A touch of CSS and layout correction
