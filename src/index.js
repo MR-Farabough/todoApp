@@ -3,7 +3,7 @@ import formValidation from './modal/formValidation.js';
 import { openModal, closeModal } from './modal/modal.js';
 import addToStorage from './storage/localStorage.js';
 import updateStorage from './storage/updateStorage.js';
-
+updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 getTime();
 
 // Modal Control
