@@ -30,10 +30,14 @@ closeModalButton.addEventListener('click', () => {
 
 submitBTN.addEventListener('click', (e) => {
 	e.preventDefault();
-	formValidation();
-	updateStorage(JSON.parse(localStorage.getItem('storage-array')));
-	addToStorage(formValidation());
-	closeModal(modal, taskModal);
+	if (!formValidation()) {
+		e.preventDefault();
+	} else {
+		addToStorage(formValidation());
+		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
+		console.log(JSON.parse(localStorage.getItem('storage-array')));
+		closeModal(modal, taskModal);
+	}
 });
 
 // TODO Updated StorageArr

@@ -10,6 +10,6 @@ export default function updateStorage(storageArr) {
 			storageArr[index].daysLeft = weeksLeft(storageArr[index].dueDate);
 			updatedStorage.push(storageArr[index]);
 		}
-		console.log(updatedStorage);
+		return updatedStorage;
 	}
 }
