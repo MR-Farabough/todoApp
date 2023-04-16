@@ -31,6 +31,7 @@ submitBTN.addEventListener('click', (e) => {
 	e.preventDefault();
 	formValidation();
 	addToStorage(formValidation());
+	console.log(JSON.parse(localStorage.getItem('storage-array')));
 	closeModal(modal, taskModal);
 });
 

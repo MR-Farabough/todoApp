@@ -8,13 +8,8 @@ export default function addToStorage(obj) {
 		storageArr = JSON.parse(localStorage.getItem('storage-array'));
 	}
 	if (obj != undefined) {
-		// if (prevEntries == null) {
-		// 	localStorage.setItem('storage-array', JSON.stringify(obj));
-		// } else {
 		storageArr.push(obj);
 		localStorage.setItem('storage-array', JSON.stringify(storageArr));
-		console.log(JSON.parse(localStorage.getItem('storage-array'), 'TEST-ONE'));
-		// }
-		return;
+		return storageArr;
 	}
 }
