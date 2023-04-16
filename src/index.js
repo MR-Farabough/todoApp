@@ -2,9 +2,18 @@ import getTime from './dateHandling/getTime.js';
 import formValidation from './modal/formValidation.js';
 import { openModal, closeModal } from './modal/modal.js';
 import addToStorage from './storage/localStorage.js';
+import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
+
+// Update due dates & the time
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 getTime();
+
+// Save Data to text file
+const saveBTN = document.getElementById('saveData');
+saveBTN.addEventListener('click', () => {
+	saveToText();
+});
 
 // Modal Control
 const openModalButton = document.getElementById('new-task-button');
@@ -26,8 +35,7 @@ closeModalButton.addEventListener('click', () => {
 	closeModal(modal, taskModal);
 });
 
-// Constructor for tasks
-
+// Submit BTN controls
 submitBTN.addEventListener('click', (e) => {
 	e.preventDefault();
 	if (!formValidation()) {
