@@ -12,17 +12,20 @@ import Task from '../taskHandling/taskConstructor.js';
 
 export default function formValidation() {
 	if (getTaskFromDom().length < 1) {
-		return errorLog('Task Name invalid');
+		errorLog('Task Name invalid');
+		return false;
 	}
 	if (getCategoryFromDom() == undefined) {
-		return errorLog('Category must be filled out');
+		errorLog('Category must be filled  out');
+		return false;
 	}
 	if (
 		getDateFromDom()[0] == undefined ||
 		getDateFromDom()[1] == undefined ||
 		getDateFromDom()[2] == undefined
 	) {
-		return errorLog('Must enter Date');
+		errorLog('Must enter Date');
+		return false;
 	}
 	if (
 		getTaskFromDom().length > 1 &&
