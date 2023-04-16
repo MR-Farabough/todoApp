@@ -53,7 +53,6 @@ submitBTN.addEventListener('click', (e) => {
 // TODO A touch of CSS and layout correction
 // TODO Add a blank task to verify the days left will change
 // TODO Decide how to retrieve tasks so that it will display information
-// TODO Write (LocalStorage || Array) to text file
 // TODO Calendar display functionality
 // TODO Category change based on button input (css to show which category you are in)
 // TODO Create 'AI' that will change task priority based on parameters (due date, category (school prioritized), type of task, etc)
