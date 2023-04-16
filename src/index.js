@@ -2,6 +2,7 @@ import getTime from './dateHandling/getTime.js';
 import formValidation from './modal/formValidation.js';
 import { openModal, closeModal } from './modal/modal.js';
 import addToStorage from './storage/localStorage.js';
+import updateStorage from './storage/updateStorage.js';
 
 getTime();
 
@@ -30,8 +31,8 @@ closeModalButton.addEventListener('click', () => {
 submitBTN.addEventListener('click', (e) => {
 	e.preventDefault();
 	formValidation();
+	updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 	addToStorage(formValidation());
-	console.log(JSON.parse(localStorage.getItem('storage-array')));
 	closeModal(modal, taskModal);
 });
 
