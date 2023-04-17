@@ -4,6 +4,7 @@ import { openModal, closeModal } from './modal/modal.js';
 import addToStorage from './storage/localStorage.js';
 import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
+import createLeftCard from './taskHandling/cardCreator.js';
 
 // Update due dates & the time
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
@@ -22,15 +23,12 @@ const taskModal = document.getElementById('task-modal');
 const submitBTN = document.getElementById('submit-task');
 const modal = document.getElementById('modal');
 const overlay = document.getElementById('overlay');
-
 openModalButton.addEventListener('click', () => {
 	openModal(modal);
 });
-
 overlay.addEventListener('click', () => {
 	closeModal(modal, taskModal);
 });
-
 closeModalButton.addEventListener('click', () => {
 	closeModal(modal, taskModal);
 });
@@ -41,9 +39,20 @@ submitBTN.addEventListener('click', (e) => {
 	if (!formValidation()) {
 		e.preventDefault();
 	} else {
+		const storageArr = JSON.parse(localStorage.getItem('storage-array'));
 		addToStorage(formValidation());
-		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
-		console.log(JSON.parse(localStorage.getItem('storage-array')));
+		updateStorage(storageArr);
+		console.log(storageArr);
+		// Render Cards
+		// TODO THIS NEEDS ITS OWN FUNCTION
+		const cardsLeft = document.querySelector('.cards-left');
+		const cardArr = createLeftCard(
+			JSON.parse(localStorage.getItem('storage-array'))
+		);
+		for (let index = 0; index < 2; index++) {
+			cardsLeft.append(cardArr[index]);
+		}
+		console.log(cardsLeft.innerHTML.length);
 		closeModal(modal, taskModal);
 	}
 });

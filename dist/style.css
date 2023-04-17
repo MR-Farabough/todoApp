@@ -170,6 +170,22 @@ html {
 	grid-column: 3 / 4;
 	background-color: yellow;
 }
+/* TASK CARD STYLING */
+.card {
+	padding: 5px;
+	margin: 5px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.cards-left {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	height: 90%;
+	justify-content: space-evenly;
+}
+
 /* FOOTER */
 /* .app-body {
 	display: grid;
