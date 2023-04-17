@@ -9,6 +9,54 @@
 		<title>Michael's TODO</title>
 	</head>
 	<body>
+		<div class="modal" id="modal">
+			<div class="modal-header">
+				<div class="title">
+					<h4>New Task</h4>
+				</div>
+				<button data-close-button id="close-button">&times;</button>
+			</div>
+			<div class="modal-body">
+				<form action="#" method="get" id="task-modal">
+					<div>
+						<label for="task-modal">Task</label>
+						<input type="text" id="task-entry" />
+					</div>
+					<div>
+						<label for="task-modal">Note</label>
+						<textarea type="text" id="note-entry"></textarea>
+					</div>
+					<div>
+						<label for="School">School</label>
+						<input type="radio" name="Category" id="School" />
+						<label for="Personal">Personal</label>
+						<input type="radio" name="Category" id="Personal" />
+					</div>
+					<div>
+						<label for="task-modal">Due Date</label>
+						<input type="date" id="date-entry" />
+					</div>
+					<div>
+						<label for="Urgent">Urgent</label>
+						<input type="radio" name="Priority" id="Urgent" />
+						<label for="Important">Important</label>
+						<input type="radio" name="Priority" id="Important" />
+						<label for="Not-Prioritized">Not Prioritized</label>
+						<input type="radio" name="Priority" id="Not-Prioritized" />
+					</div>
+					<label for="task-modal">Type</label>
+					<select name="Type" id="type">
+						<option value="Task">Task</option>
+						<option value="Homework">Homework</option>
+						<option value="Assignment">Assignment</option>
+						<option value="Exam">Exam</option>
+						<option value="Final">Final</option>
+					</select>
+					<button type="submit" id="submit-task">Add Task</button>
+				</form>
+			</div>
+		</div>
+		<div id="overlay"></div>
 		<div class="header">
 			<div class="header-icon-container">
 				<img class="home-icon" src="./imgs/home.png" alt="Home-Icon" />
@@ -23,60 +71,28 @@
 				<h3 class="clock"></h3>
 			</div>
 		</div>
-		<div class="left-column">
-			<button data-modal-target="#modal" id="new-task-button">
-				+ Add Task
-			</button>
-			<div class="modal" id="modal">
-				<div class="modal-header">
-					<div class="title">
-						<h4>New Task</h4>
-					</div>
-					<button data-close-button id="close-button">&times;</button>
-				</div>
-				<div class="modal-body">
-					<form action="#" method="get" id="task-modal">
-						<div>
-							<label for="task-modal">Task</label>
-							<input type="text" id="task-entry" />
-						</div>
-						<div>
-							<label for="task-modal">Note</label>
-							<textarea type="text" id="note-entry"></textarea>
-						</div>
-						<div>
-							<label for="School">School</label>
-							<input type="radio" name="Category" id="School" />
-							<label for="Personal">Personal</label>
-							<input type="radio" name="Category" id="Personal" />
-						</div>
-						<div>
-							<label for="task-modal">Due Date</label>
-							<input type="date" id="date-entry" />
-						</div>
-						<div>
-							<label for="Urgent">Urgent</label>
-							<input type="radio" name="Priority" id="Urgent" />
-							<label for="Important">Important</label>
-							<input type="radio" name="Priority" id="Important" />
-							<label for="Not-Prioritized">Not Prioritized</label>
-							<input type="radio" name="Priority" id="Not-Prioritized" />
-						</div>
-						<label for="task-modal">Type</label>
-						<select name="Type" id="type">
-							<option value="Task">Task</option>
-							<option value="Homework">Homework</option>
-							<option value="Assignment">Assignment</option>
-							<option value="Exam">Exam</option>
-							<option value="Final">Final</option>
-						</select>
-						<button type="submit" id="submit-task">Add Task</button>
-					</form>
-				</div>
+		<div class="app-body">
+			<div class="left-column">
+				<button data-modal-target="#modal" id="new-task-button">
+					+ Add Task
+				</button>
+				<button id="saveData">Save Data</button>
+				<button id="uploadData">Upload Data</button>
 			</div>
-			<div id="overlay"></div>
+			<div class="calendarBody">
+				<div class="weekName">
+					<p>Monday</p>
+					<p>Tuesday</p>
+					<p>Wednesday</p>
+					<p>Thursday</p>
+					<p>Friday</p>
+					<p>Saturday</p>
+					<p>Sunday</p>
+				</div>
+				<div class="calendar"></div>
+			</div>
+			<div class="footer"></div>
+			<div class="right-column"></div>
 		</div>
-		<button id="saveData">Save Data</button>
-		<button id="uploadData">Upload Data</button>
 	</body>
 </html>
