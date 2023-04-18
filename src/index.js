@@ -4,7 +4,6 @@ import { openModal, closeModal } from './modal/modal.js';
 import addToStorage from './storage/localStorage.js';
 import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
-import renderLeftSide from './taskHandling/leftSideCardRender.js';
 
 // Update due dates, time, and render cards
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
