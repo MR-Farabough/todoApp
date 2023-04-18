@@ -6,6 +6,7 @@ import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
 
 // Update due dates, time, and render cards
+console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 getTime();
 
@@ -38,10 +39,9 @@ submitBTN.addEventListener('click', (e) => {
 	if (!formValidation()) {
 		e.preventDefault();
 	} else {
-		const storageArr = JSON.parse(localStorage.getItem('storage-array'));
 		addToStorage(formValidation());
-		updateStorage(storageArr);
-		console.log(storageArr);
+		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
+		console.log(JSON.parse(localStorage.getItem('storage-array')), 'log two');
 		closeModal(modal, taskModal);
 	}
 });

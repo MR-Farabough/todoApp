@@ -3,14 +3,16 @@ import { weeksLeft } from '../dateHandling/daysLeft.js';
 
 export default function updateStorage(storageArr) {
 	if (storageArr == null) {
-		return;
+		return [];
 	} else {
 		let updatedStorage = [];
 		for (let index = 0; index < storageArr.length; index++) {
 			storageArr[index].daysLeft = weeksLeft(storageArr[index].dueDate);
 			updatedStorage.push(storageArr[index]);
 		}
-		localStorage.setItem('storage-array', JSON.stringify(updateStorage));
-		return updatedStorage;
+		return localStorage.setItem(
+			'storage-array',
+			JSON.stringify(updatedStorage)
+		);
 	}
 }
