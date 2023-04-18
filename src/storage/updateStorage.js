@@ -10,6 +10,7 @@ export default function updateStorage(storageArr) {
 			storageArr[index].daysLeft = weeksLeft(storageArr[index].dueDate);
 			updatedStorage.push(storageArr[index]);
 		}
+		localStorage.setItem('storage-array', JSON.stringify(updateStorage));
 		return updatedStorage;
 	}
 }
