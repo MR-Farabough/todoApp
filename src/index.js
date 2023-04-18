@@ -9,7 +9,6 @@ import renderLeftSide from './taskHandling/leftSideCardRender.js';
 // Update due dates, time, and render cards
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 getTime();
-// renderLeftSide();
 
 // Save Data to text file
 const saveBTN = document.getElementById('saveData');
