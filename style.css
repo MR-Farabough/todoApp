@@ -121,6 +121,10 @@ html {
 .quote {
 	display: flex;
 	min-width: 205px;
+	font-family: 'Dongle';
+	font-size: 50px;
+	padding: 0px;
+	margin: 0px;
 	justify-content: center;
 	align-items: center;
 	flex: 1;
