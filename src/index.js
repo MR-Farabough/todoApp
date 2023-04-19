@@ -36,7 +36,7 @@ closeModalButton.addEventListener('click', () => {
 });
 
 // Category Buttons
-let category = 'total';
+let category = 'Total';
 const totalTaskBtn = document.querySelector('.total-taskEL');
 const todaysTaskBtn = document.querySelector('.todays-taskEL');
 const weeksTaskBtn = document.querySelector('.weeks-taskEL');
