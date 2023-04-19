@@ -1,4 +1,4 @@
-export default function createLeftCard(storageArr) {
+export default function createCard(storageArr) {
 	let cardArr = [];
 	for (let index = 0; index < storageArr.length; index++) {
 		const taskObj = storageArr[index];
