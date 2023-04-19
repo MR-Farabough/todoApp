@@ -4,11 +4,13 @@ import { openModal, closeModal } from './modal/modal.js';
 import addToStorage from './storage/localStorage.js';
 import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
+import renderCards from './taskHandling/renderCards.js';
 
 // Update due dates, time, and render cards
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 getTime();
+renderCards();
 
 // Save Data to text file
 const saveBTN = document.getElementById('saveData');
