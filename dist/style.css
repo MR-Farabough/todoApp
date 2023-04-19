@@ -196,6 +196,14 @@ html {
 	justify-content: center;
 	align-items: center;
 }
+.delete-button {
+	color: white;
+	cursor: pointer;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 5px;
+	background-color: var(--red-color);
+}
 /* LEFT COLUMN */
 .left-side {
 	background-color: var(--red-color);
