@@ -83,6 +83,7 @@ submitBTN.addEventListener('click', (e) => {
 		addToStorage(formValidation());
 		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 		console.log(JSON.parse(localStorage.getItem('storage-array')), 'log two');
+		renderCards(category);
 		closeModal(modal, taskModal);
 	}
 });
