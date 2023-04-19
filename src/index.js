@@ -46,6 +46,24 @@ document.querySelector('.quote').textContent = `Total Tasks: ${
 	cardsEL.childNodes.length - 1
 }`;
 
+const homeButton = document.querySelector('.home-icon');
+const personalButton = document.querySelector('.personal-button');
+const schoolButton = document.querySelector('.school-button');
+const taskCategories = 'Total';
+homeButton.addEventListener('click', () => {
+	taskCategories = 'Total';
+	renderCards(category, taskCategories);
+});
+personalButton.addEventListener('click', () => {
+	taskCategories = 'Personal';
+	renderCards(category, taskCategories);
+});
+
+schoolButton.addEventListener('click', () => {
+	taskCategories = 'School';
+	renderCards(category, taskCategories);
+});
+
 totalTaskBtn.addEventListener('click', () => {
 	category = 'Total';
 	pageLocationEL.textContent = `${category} Tasks`;
