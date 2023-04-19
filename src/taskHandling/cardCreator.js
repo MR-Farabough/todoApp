@@ -18,9 +18,30 @@ export default function createCard(category) {
 				} else if (storageArr[index].priority == 'URGENT') {
 					div.style.borderLeft = '8px solid red';
 				}
-				const p = document.createElement('p');
-				p.textContent = storageArr[index].daysLeft;
-				div.append(p);
+				div.style.justifyContent = 'space-evenly';
+				div.style.alignItems = 'center';
+				let title = document.createElement('h4');
+				title.textContent = storageArr[index].title;
+				let notes = document.createElement('p');
+				notes.textContent = storageArr[index].notes;
+				let dueDate = document.createElement('p');
+				dueDate = `Due Date: ${storageArr[index].dueDate} --- ${storageArr[index].daysLeft} left`;
+				let priority = document.createElement('p');
+				priority.textContent = `Priority: ${storageArr[index].priority}`;
+				let type = document.createElement('p');
+				type.textContent = `Type: ${storageArr[index].type}`;
+				let taskCategory = document.createElement('p');
+				taskCategory.textContent = storageArr[index].category;
+				if (taskCategory.innerHTML == 'Personal') {
+					taskCategory.style.backgroundColor = 'lightgreen';
+					taskCategory.style.padding = '5px';
+					taskCategory.style.width = 'fit-content';
+				} else {
+					taskCategory.style.backgroundColor = 'lightcoral';
+					taskCategory.style.padding = '5px';
+					taskCategory.style.width = 'fit-content';
+				}
+				div.append(title, notes, dueDate, priority, type, taskCategory);
 				document.querySelector('.cards').append(div);
 			}
 			return '';
