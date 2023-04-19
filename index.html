@@ -5,6 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./style.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Dongle"
+			rel="stylesheet"
+		/>
 		<script src="main.js" type="module"></script>
 		<title>Michael's TODO</title>
 	</head>
@@ -58,26 +62,48 @@
 		</div>
 		<div id="overlay"></div>
 		<div class="header">
-			<div class="header-icon-container">
+			<div class="top-left">
 				<img class="home-icon" src="./imgs/home.png" alt="Home-Icon" />
-				<div class="category-buttons">
-					<button>Personal</button>
-					<button>School</button>
+				<div class="header-icon-container">
+					<div class="category-buttons">
+						<button>Personal</button>
+						<button>School</button>
+					</div>
+					<div class="save-buttons">
+						<button id="saveData">Save Data</button>
+						<button id="uploadData">Upload Data</button>
+					</div>
 				</div>
 			</div>
-			<h1 class="quote">This is an example quote</h1>
-			<div class="header-corner">
-				<h2 class="page-location">Home</h2>
-				<h3 class="clock"></h3>
+			<div class="top-right">
+				<p class="quote">This is an example quote</p>
+				<div class="header-corner">
+					<h2 class="page-location">Home</h2>
+					<h3 class="clock"></h3>
+				</div>
 			</div>
 		</div>
 		<div class="app-body">
-			<button data-modal-target="#modal" id="new-task-button">
-				+ Add Task
-			</button>
-			<button id="saveData">Save Data</button>
-			<button id="uploadData">Upload Data</button>
-			<div class="cards-left"></div>
+			<div class="left-side">
+				<div class="img">
+					<img src="./imgs/total.png" alt="Total Tasks" />
+					<p class="total-taskEL">Total Tasks</p>
+				</div>
+				<div class="img">
+					<img src="./imgs/today.png" alt="Todays tasks" />
+					<p class="todays-taskEL">Today's Tasks</p>
+				</div>
+				<div class="img">
+					<img src="./imgs/calendar.png" alt="This weeks Tasks" />
+					<p class="weeks-taskEL">This Week's Tasks</p>
+				</div>
+				<button data-modal-target="#modal" id="new-task-button">
+					+ Add Task
+				</button>
+			</div>
+			<div class="right-side">
+				<div class="cards"></div>
+			</div>
 			<div class="footer"></div>
 		</div>
 	</body>
