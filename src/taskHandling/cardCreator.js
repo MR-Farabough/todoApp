@@ -39,8 +39,20 @@ export default function createCard(category) {
 			taskCategory.style.padding = '5px';
 			taskCategory.style.width = 'fit-content';
 		}
-		div.append(title, notes, dueDate, priority, type, taskCategory);
+		const delBTN = document.createElement('button');
+		delBTN.classList.add('delete-button');
+		delBTN.innerHTML = 'Delete Task';
+		div.append(title, notes, dueDate, priority, type, taskCategory, delBTN);
 		document.querySelector('.cards').append(div);
+		delBTN.addEventListener('click', () => {
+			const indexNum = storageArr.indexOf(storageArr[index]);
+			storageArr.splice(indexNum, 1);
+			div.remove();
+			localStorage.setItem('storage-array', JSON.stringify(storageArr));
+			document.querySelector('.quote').textContent = `Total Tasks ${
+				document.querySelector('.cards').childNodes.length - 1
+			}`;
+		});
 	}
 	if (storageArr == null) {
 		return;
