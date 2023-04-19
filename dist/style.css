@@ -2,6 +2,7 @@ body,
 html {
 	margin: 0px;
 	padding: 0px;
+	background-color: var(--pink-color);
 }
 
 /* ROOT */
@@ -10,7 +11,7 @@ html {
 	--white-grey: rgb(216, 216, 216);
 	--hover-white: rgb(251, 251, 251);
 	--hover-category: rgba(102, 102, 102, 0.65);
-	--pink-color: rgba(143, 50, 50, 0.301);
+	--pink-color: rgb(238, 186, 186);
 }
 
 /* MODAL */
@@ -171,6 +172,7 @@ html {
 	font-size: 30px;
 	color: white;
 	background-color: var(--red-color);
+	border-bottom-left-radius: 15px;
 }
 /* APP BODY */
 .app-body {
@@ -183,9 +185,16 @@ html {
 	width: 85vw;
 	min-width: 550px;
 }
+.cards {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 /* LEFT COLUMN */
 .left-side {
 	background-color: var(--red-color);
+	border-top-right-radius: 25px;
 	display: flex;
 	flex-direction: column;
 	width: 15vw;

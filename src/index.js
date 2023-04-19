@@ -10,7 +10,7 @@ import renderCards from './taskHandling/renderCards.js';
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 getTime();
-renderCards();
+renderCards('total');
 
 // Save Data to text file
 const saveBTN = document.getElementById('saveData');
