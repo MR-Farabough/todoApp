@@ -186,8 +186,8 @@ html {
 /* RIGHT COLUMN */
 .right-side {
 	background-color: var(--pink-color);
-	width: 85vw;
-	min-width: 550px;
+	flex: 1;
+	min-width: 355px;
 }
 .cards {
 	display: flex;
