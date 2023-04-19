@@ -83,7 +83,11 @@ submitBTN.addEventListener('click', (e) => {
 		addToStorage(formValidation());
 		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 		console.log(JSON.parse(localStorage.getItem('storage-array')), 'log two');
+		cardsEL.textContent = '';
 		renderCards(category);
+		document.querySelector('.quote').textContent = `Total Tasks: ${
+			cardsEL.childNodes.length - 1
+		}`;
 		closeModal(modal, taskModal);
 	}
 });
