@@ -139,7 +139,7 @@ html {
 }
 
 .header-corner {
-	width: 150px;
+	min-width: 150px;
 }
 
 .header-icon-container > div > button {
