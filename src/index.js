@@ -10,7 +10,7 @@ import renderCards from './taskHandling/renderCards.js';
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 getTime();
-renderCards('total');
+renderCards('Total');
 
 // Save Data to text file
 const saveBTN = document.getElementById('saveData');
@@ -33,6 +33,33 @@ overlay.addEventListener('click', () => {
 });
 closeModalButton.addEventListener('click', () => {
 	closeModal(modal, taskModal);
+});
+
+// Category Buttons
+let category = 'total';
+const totalTaskBtn = document.querySelector('.total-taskEL');
+const todaysTaskBtn = document.querySelector('.todays-taskEL');
+const weeksTaskBtn = document.querySelector('.weeks-taskEL');
+const pageLocationEL = document.querySelector('.page-location');
+const cardsEL = document.querySelector('.cards');
+
+totalTaskBtn.addEventListener('click', () => {
+	category = 'Total';
+	pageLocationEL.textContent = `${category} Tasks`;
+	cardsEL.textContent = '';
+	renderCards(category);
+});
+todaysTaskBtn.addEventListener('click', () => {
+	category = 'Today';
+	pageLocationEL.textContent = `${category}'s Tasks`;
+	cardsEL.textContent = '';
+	renderCards(category);
+});
+weeksTaskBtn.addEventListener('click', () => {
+	category = 'Weeks';
+	pageLocationEL.textContent = `Current Week`;
+	cardsEL.textContent = '';
+	renderCards(category);
 });
 
 // Submit BTN controls
