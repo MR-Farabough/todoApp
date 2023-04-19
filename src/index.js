@@ -6,8 +6,8 @@ import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
 
 // Update due dates, time, and render cards
-console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
+console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 getTime();
 
 // Save Data to text file
