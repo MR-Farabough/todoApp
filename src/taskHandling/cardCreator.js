@@ -1,4 +1,5 @@
 import { daysLeft } from '../dateHandling/daysLeft.js';
+import renderCards from './renderCards.js';
 
 export default function createCard(category) {
 	const storageArr = JSON.parse(localStorage.getItem('storage-array'));
@@ -49,6 +50,7 @@ export default function createCard(category) {
 			storageArr.splice(indexNum, 1);
 			div.remove();
 			localStorage.setItem('storage-array', JSON.stringify(storageArr));
+			renderCards(category);
 			document.querySelector('.quote').textContent = `Total Tasks ${
 				document.querySelector('.cards').childNodes.length - 1
 			}`;
