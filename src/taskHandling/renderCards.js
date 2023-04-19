@@ -1,6 +1,6 @@
 import createCard from './cardCreator.js';
 
-export default function renderCards(category) {
+export default function renderCards(category, taskCategories) {
 	const cardsEL = document.querySelector('.cards');
 	if (
 		localStorage.getItem('storage-array') == null ||
@@ -8,7 +8,7 @@ export default function renderCards(category) {
 	) {
 		cardsEL.textContent = 'no TASKS';
 	} else {
-		const totalCards = createCard(category);
+		const totalCards = createCard(category, taskCategories);
 		cardsEL.append(totalCards);
 	}
 }

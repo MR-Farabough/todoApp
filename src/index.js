@@ -10,7 +10,7 @@ import renderCards from './taskHandling/renderCards.js';
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 getTime();
-renderCards('Total');
+renderCards('Total', 'Total');
 
 // Save Data to text file
 const saveBTN = document.getElementById('saveData');
@@ -49,18 +49,21 @@ document.querySelector('.quote').textContent = `Total Tasks: ${
 const homeButton = document.querySelector('.home-icon');
 const personalButton = document.querySelector('.personal-button');
 const schoolButton = document.querySelector('.school-button');
-const taskCategories = 'Total';
+let taskCategories = 'Total';
 homeButton.addEventListener('click', () => {
 	taskCategories = 'Total';
+	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
 });
 personalButton.addEventListener('click', () => {
 	taskCategories = 'Personal';
+	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
 });
 
 schoolButton.addEventListener('click', () => {
 	taskCategories = 'School';
+	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
 });
 
@@ -68,7 +71,7 @@ totalTaskBtn.addEventListener('click', () => {
 	category = 'Total';
 	pageLocationEL.textContent = `${category} Tasks`;
 	cardsEL.textContent = '';
-	renderCards(category);
+	renderCards(category, taskCategories);
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
@@ -77,7 +80,7 @@ todaysTaskBtn.addEventListener('click', () => {
 	category = 'Today';
 	pageLocationEL.textContent = `${category}'s Tasks`;
 	cardsEL.textContent = '';
-	renderCards(category);
+	renderCards(category, taskCategories);
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
@@ -86,7 +89,7 @@ weeksTaskBtn.addEventListener('click', () => {
 	category = 'Weeks';
 	pageLocationEL.textContent = `Current Week`;
 	cardsEL.textContent = '';
-	renderCards(category);
+	renderCards(category, taskCategories);
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
@@ -102,7 +105,7 @@ submitBTN.addEventListener('click', (e) => {
 		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 		console.log(JSON.parse(localStorage.getItem('storage-array')), 'log two');
 		cardsEL.textContent = '';
-		renderCards(category);
+		renderCards(category, taskCategories);
 		document.querySelector('.quote').textContent = `Total Tasks: ${
 			cardsEL.childNodes.length - 1
 		}`;

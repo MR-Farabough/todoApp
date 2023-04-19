@@ -1,7 +1,7 @@
 import { daysLeft } from '../dateHandling/daysLeft.js';
 import renderCards from './renderCards.js';
 
-export default function createCard(category) {
+export default function createCard(category, taskCategories) {
 	const storageArr = JSON.parse(localStorage.getItem('storage-array'));
 	function cardConstructor(index) {
 		const div = document.createElement('div');
@@ -43,7 +43,7 @@ export default function createCard(category) {
 		const delBTN = document.createElement('button');
 		delBTN.classList.add('delete-button');
 		delBTN.innerHTML = 'Delete Task';
-		div.append(title, notes, dueDate, priority, type, taskCategory, delBTN);
+		div.append(title, notes, dueDate, type, taskCategory, delBTN);
 		document.querySelector('.cards').append(div);
 		delBTN.addEventListener('click', () => {
 			const indexNum = storageArr.indexOf(storageArr[index]);
@@ -56,15 +56,17 @@ export default function createCard(category) {
 			}`;
 		});
 	}
+	// Create card for certain category and taskCategory
 	if (storageArr == null) {
 		return;
 	} else {
-		if (category == 'Total') {
+		// first chunk is for all categories
+		if (category == 'Total' && taskCategories == 'Total') {
 			for (let index = 0; index < storageArr.length; index++) {
 				cardConstructor(index);
 			}
 			return '';
-		} else if (category == 'Today') {
+		} else if (category == 'Today' && taskCategories == 'Total') {
 			for (let index = 0; index < storageArr.length; index++) {
 				if (storageArr[index].daysLeft != 0) {
 				} else {
@@ -72,11 +74,75 @@ export default function createCard(category) {
 				}
 			}
 			return '';
-		} else if (category == 'Weeks') {
+		} else if (category == 'Weeks' && taskCategories == 'Total') {
 			for (let index = 0; index < storageArr.length; index++) {
 				if (daysLeft(storageArr[index].dueDate) > 7) {
 				} else {
 					cardConstructor(index);
+				}
+			}
+			return '';
+		}
+		// Second chunk is for personal category
+		if (category == 'Total' && taskCategories == 'Personal') {
+			for (let index = 0; index < storageArr.length; index++) {
+				if (storageArr[index].category != 'Personal') {
+				} else {
+					cardConstructor(index);
+				}
+			}
+			return '';
+		} else if (category == 'Today' && taskCategories == 'Personal') {
+			for (let index = 0; index < storageArr.length; index++) {
+				if (storageArr[index].category != 'Personal') {
+				} else {
+					if (storageArr[index].daysLeft != 0) {
+					} else {
+						cardConstructor(index);
+					}
+				}
+			}
+			return '';
+		} else if (category == 'Weeks' && taskCategories == 'Personal') {
+			for (let index = 0; index < storageArr.length; index++) {
+				if (storageArr[index].category != 'Personal') {
+				} else {
+					if (daysLeft(storageArr[index].dueDate) > 7) {
+					} else {
+						cardConstructor(index);
+					}
+				}
+			}
+			return '';
+		}
+		// Third Chunk is for school category
+		if (category == 'Total' && taskCategories == 'School') {
+			for (let index = 0; index < storageArr.length; index++) {
+				if (storageArr[index].category != 'School') {
+				} else {
+					cardConstructor(index);
+				}
+			}
+			return '';
+		} else if (category == 'Today' && taskCategories == 'School') {
+			for (let index = 0; index < storageArr.length; index++) {
+				if (storageArr[index].category != 'School') {
+				} else {
+					if (storageArr[index].daysLeft != 0) {
+					} else {
+						cardConstructor(index);
+					}
+				}
+			}
+			return '';
+		} else if (category == 'Weeks' && taskCategories == 'School') {
+			for (let index = 0; index < storageArr.length; index++) {
+				if (storageArr[index].category != 'School') {
+				} else {
+					if (daysLeft(storageArr[index].dueDate) > 7) {
+					} else {
+						cardConstructor(index);
+					}
 				}
 			}
 			return '';
