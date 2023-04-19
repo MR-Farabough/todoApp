@@ -65,6 +65,7 @@ export default function createCard(category) {
 					cardConstructor(index);
 				}
 			}
+			return '';
 		}
 	}
 }

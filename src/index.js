@@ -42,24 +42,36 @@ const todaysTaskBtn = document.querySelector('.todays-taskEL');
 const weeksTaskBtn = document.querySelector('.weeks-taskEL');
 const pageLocationEL = document.querySelector('.page-location');
 const cardsEL = document.querySelector('.cards');
+document.querySelector('.quote').textContent = `Total Tasks: ${
+	cardsEL.childNodes.length - 1
+}`;
 
 totalTaskBtn.addEventListener('click', () => {
 	category = 'Total';
 	pageLocationEL.textContent = `${category} Tasks`;
 	cardsEL.textContent = '';
 	renderCards(category);
+	document.querySelector('.quote').textContent = `Total Tasks: ${
+		cardsEL.childNodes.length - 1
+	}`;
 });
 todaysTaskBtn.addEventListener('click', () => {
 	category = 'Today';
 	pageLocationEL.textContent = `${category}'s Tasks`;
 	cardsEL.textContent = '';
 	renderCards(category);
+	document.querySelector('.quote').textContent = `Total Tasks: ${
+		cardsEL.childNodes.length - 1
+	}`;
 });
 weeksTaskBtn.addEventListener('click', () => {
 	category = 'Weeks';
 	pageLocationEL.textContent = `Current Week`;
 	cardsEL.textContent = '';
 	renderCards(category);
+	document.querySelector('.quote').textContent = `Total Tasks: ${
+		cardsEL.childNodes.length - 1
+	}`;
 });
 
 // Submit BTN controls
