@@ -57,6 +57,7 @@ homeButton.addEventListener('click', () => {
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
+	document.querySelector('.category-title').textContent = 'All Categories';
 });
 personalButton.addEventListener('click', () => {
 	taskCategories = 'Personal';
@@ -65,6 +66,7 @@ personalButton.addEventListener('click', () => {
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
+	document.querySelector('.category-title').textContent = 'Personal Category';
 });
 
 schoolButton.addEventListener('click', () => {
@@ -74,6 +76,7 @@ schoolButton.addEventListener('click', () => {
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
+	document.querySelector('.category-title').textContent = 'School Category';
 });
 
 totalTaskBtn.addEventListener('click', () => {
