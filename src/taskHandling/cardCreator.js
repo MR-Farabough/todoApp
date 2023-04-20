@@ -54,6 +54,7 @@ export default function createCard(category, taskCategories) {
 			document.querySelector('.quote').textContent = `Total Tasks ${
 				document.querySelector('.cards').childNodes.length - 1
 			}`;
+			return '';
 		});
 	}
 	// Create card for certain category and taskCategory
