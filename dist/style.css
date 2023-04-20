@@ -190,6 +190,8 @@ html {
 	flex: 1;
 	min-width: 355px;
 	margin: 10px;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 .cards {
 	display: flex;
