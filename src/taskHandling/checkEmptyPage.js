@@ -15,7 +15,6 @@ export default function checkEmpty() {
 			'imgs/hampster.png',
 		];
 		const number = Math.floor(Math.random() * arrOfImages.length);
-		console.log(number);
 		const img = new Image();
 		img.src = arrOfImages[number];
 		img.style.height = '35%';
