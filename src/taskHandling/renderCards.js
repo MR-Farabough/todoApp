@@ -10,6 +10,8 @@ export default function renderCards(category, taskCategories) {
 		img.src = 'imgs/cat.png';
 		img.style.height = '35%';
 		img.style.width = '35%';
+		img.style.minHeight = '300px';
+		img.style.minWidth = '300px';
 		cardsEL.appendChild(img);
 	} else {
 		const totalCards = createCard(category, taskCategories);
