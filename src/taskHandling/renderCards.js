@@ -6,7 +6,11 @@ export default function renderCards(category, taskCategories) {
 		localStorage.getItem('storage-array') == null ||
 		localStorage.getItem('storage-array').length < 3
 	) {
-		cardsEL.textContent = 'no TASKS';
+		const img = new Image();
+		img.src = 'imgs/cat.png';
+		img.style.height = '35%';
+		img.style.width = '35%';
+		cardsEL.appendChild(img);
 	} else {
 		const totalCards = createCard(category, taskCategories);
 		cardsEL.append(totalCards);
