@@ -50,11 +50,11 @@ export default function createCard(category, taskCategories) {
 			storageArr.splice(indexNum, 1);
 			div.remove();
 			localStorage.setItem('storage-array', JSON.stringify(storageArr));
-			renderCards(category);
+			document.querySelector('.cards').textContent = '';
+			renderCards(category, taskCategories);
 			document.querySelector('.quote').textContent = `Total Tasks ${
 				document.querySelector('.cards').childNodes.length - 1
 			}`;
-			return '';
 		});
 	}
 	// Create card for certain category and taskCategory

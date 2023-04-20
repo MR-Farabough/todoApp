@@ -4,6 +4,7 @@ import { openModal, closeModal } from './modal/modal.js';
 import addToStorage from './storage/localStorage.js';
 import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
+import checkEmpty from './taskHandling/checkEmptyPage.js';
 import renderCards from './taskHandling/renderCards.js';
 
 // Update due dates, time, and render cards
@@ -58,6 +59,7 @@ homeButton.addEventListener('click', () => {
 		cardsEL.childNodes.length - 1
 	}`;
 	document.querySelector('.category-title').textContent = 'All Categories';
+	checkEmpty();
 });
 personalButton.addEventListener('click', () => {
 	taskCategories = 'Personal';
@@ -67,6 +69,7 @@ personalButton.addEventListener('click', () => {
 		cardsEL.childNodes.length - 1
 	}`;
 	document.querySelector('.category-title').textContent = 'Personal Category';
+	checkEmpty();
 });
 
 schoolButton.addEventListener('click', () => {
@@ -77,6 +80,7 @@ schoolButton.addEventListener('click', () => {
 		cardsEL.childNodes.length - 1
 	}`;
 	document.querySelector('.category-title').textContent = 'School Category';
+	checkEmpty();
 });
 
 totalTaskBtn.addEventListener('click', () => {
@@ -87,6 +91,7 @@ totalTaskBtn.addEventListener('click', () => {
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
+	checkEmpty();
 });
 todaysTaskBtn.addEventListener('click', () => {
 	category = 'Today';
@@ -96,6 +101,7 @@ todaysTaskBtn.addEventListener('click', () => {
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
+	checkEmpty();
 });
 weeksTaskBtn.addEventListener('click', () => {
 	category = 'Weeks';
@@ -105,6 +111,7 @@ weeksTaskBtn.addEventListener('click', () => {
 	document.querySelector('.quote').textContent = `Total Tasks: ${
 		cardsEL.childNodes.length - 1
 	}`;
+	checkEmpty();
 });
 
 // Submit BTN controls
