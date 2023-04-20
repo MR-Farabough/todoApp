@@ -24,7 +24,7 @@ export default function createCard(category, taskCategories) {
 		let title = document.createElement('h4');
 		title.textContent = storageArr[index].title;
 		let notes = document.createElement('p');
-		notes.textContent = storageArr[index].notes;
+		notes.textContent = storageArr[index].note;
 		let dueDate = document.createElement('p');
 		dueDate = `Due Date: ${storageArr[index].dueDate} --- ${storageArr[index].daysLeft} left`;
 		let priority = document.createElement('p');
