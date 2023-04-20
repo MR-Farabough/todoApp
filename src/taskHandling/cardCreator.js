@@ -1,4 +1,6 @@
 import { daysLeft } from '../dateHandling/daysLeft.js';
+import checkEmpty from './checkEmptyPage.js';
+import updateTaskCount from './taskCount.js';
 import renderCards from './renderCards.js';
 
 export default function createCard(category, taskCategories) {
@@ -52,9 +54,10 @@ export default function createCard(category, taskCategories) {
 			localStorage.setItem('storage-array', JSON.stringify(storageArr));
 			document.querySelector('.cards').textContent = '';
 			renderCards(category, taskCategories);
-			document.querySelector('.quote').textContent = `Total Tasks ${
-				document.querySelector('.cards').childNodes.length - 1
-			}`;
+			document.querySelector(
+				'.quote'
+			).textContent = `Total Tasks: ${updateTaskCount()}`;
+			checkEmpty();
 		});
 	}
 	// Create card for certain category and taskCategory

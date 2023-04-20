@@ -6,6 +6,7 @@ import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
 import checkEmpty from './taskHandling/checkEmptyPage.js';
 import renderCards from './taskHandling/renderCards.js';
+import updateTaskCount from './taskHandling/taskCount.js';
 
 // Update due dates, time, and render cards
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
@@ -43,9 +44,10 @@ const todaysTaskBtn = document.querySelector('.todays-taskEL');
 const weeksTaskBtn = document.querySelector('.weeks-taskEL');
 const pageLocationEL = document.querySelector('.page-location');
 const cardsEL = document.querySelector('.cards');
-document.querySelector('.quote').textContent = `Total Tasks: ${
-	cardsEL.childNodes.length - 1
-}`;
+document.querySelector(
+	'.quote'
+).textContent = `Total Tasks: ${updateTaskCount()}`;
+checkEmpty();
 
 const homeButton = document.querySelector('.home-icon');
 const personalButton = document.querySelector('.personal-button');
@@ -55,9 +57,9 @@ homeButton.addEventListener('click', () => {
 	taskCategories = 'Total';
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
-	document.querySelector('.quote').textContent = `Total Tasks: ${
-		cardsEL.childNodes.length - 1
-	}`;
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
 	document.querySelector('.category-title').textContent = 'All Categories';
 	checkEmpty();
 });
@@ -65,9 +67,9 @@ personalButton.addEventListener('click', () => {
 	taskCategories = 'Personal';
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
-	document.querySelector('.quote').textContent = `Total Tasks: ${
-		cardsEL.childNodes.length - 1
-	}`;
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
 	document.querySelector('.category-title').textContent = 'Personal Category';
 	checkEmpty();
 });
@@ -76,9 +78,9 @@ schoolButton.addEventListener('click', () => {
 	taskCategories = 'School';
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
-	document.querySelector('.quote').textContent = `Total Tasks: ${
-		cardsEL.childNodes.length - 1
-	}`;
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
 	document.querySelector('.category-title').textContent = 'School Category';
 	checkEmpty();
 });
@@ -88,9 +90,9 @@ totalTaskBtn.addEventListener('click', () => {
 	pageLocationEL.textContent = `${category} Tasks`;
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
-	document.querySelector('.quote').textContent = `Total Tasks: ${
-		cardsEL.childNodes.length - 1
-	}`;
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
 	checkEmpty();
 });
 todaysTaskBtn.addEventListener('click', () => {
@@ -98,9 +100,9 @@ todaysTaskBtn.addEventListener('click', () => {
 	pageLocationEL.textContent = `${category}'s Tasks`;
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
-	document.querySelector('.quote').textContent = `Total Tasks: ${
-		cardsEL.childNodes.length - 1
-	}`;
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
 	checkEmpty();
 });
 weeksTaskBtn.addEventListener('click', () => {
@@ -108,9 +110,9 @@ weeksTaskBtn.addEventListener('click', () => {
 	pageLocationEL.textContent = `Current Week`;
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
-	document.querySelector('.quote').textContent = `Total Tasks: ${
-		cardsEL.childNodes.length - 1
-	}`;
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
 	checkEmpty();
 });
 
@@ -120,14 +122,15 @@ submitBTN.addEventListener('click', (e) => {
 	if (!formValidation()) {
 		e.preventDefault();
 	} else {
+		checkEmpty();
 		addToStorage(formValidation());
 		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 		console.log(JSON.parse(localStorage.getItem('storage-array')), 'log two');
 		cardsEL.textContent = '';
 		renderCards(category, taskCategories);
-		document.querySelector('.quote').textContent = `Total Tasks: ${
-			cardsEL.childNodes.length - 1
-		}`;
+		document.querySelector(
+			'.quote'
+		).textContent = `Total Tasks: ${updateTaskCount()}`;
 		closeModal(modal, taskModal);
 	}
 });

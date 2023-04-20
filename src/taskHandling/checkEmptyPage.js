@@ -1,6 +1,9 @@
 export default function checkEmpty() {
 	const cardsEL = document.querySelector('.cards');
-	if (document.querySelector('.quote').textContent == 'Total Tasks: 0') {
+	if (
+		document.querySelector('.quote').textContent == 'Total Tasks: 0' &&
+		cardsEL.querySelector('img') == null
+	) {
 		const img = new Image();
 		img.src = 'imgs/cat.png';
 		img.style.height = '35%';
