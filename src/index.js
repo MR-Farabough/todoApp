@@ -54,17 +54,26 @@ homeButton.addEventListener('click', () => {
 	taskCategories = 'Total';
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
+	document.querySelector('.quote').textContent = `Total Tasks: ${
+		cardsEL.childNodes.length - 1
+	}`;
 });
 personalButton.addEventListener('click', () => {
 	taskCategories = 'Personal';
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
+	document.querySelector('.quote').textContent = `Total Tasks: ${
+		cardsEL.childNodes.length - 1
+	}`;
 });
 
 schoolButton.addEventListener('click', () => {
 	taskCategories = 'School';
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
+	document.querySelector('.quote').textContent = `Total Tasks: ${
+		cardsEL.childNodes.length - 1
+	}`;
 });
 
 totalTaskBtn.addEventListener('click', () => {
