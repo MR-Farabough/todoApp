@@ -1,10 +1,15 @@
 import convertDate, { convertDueDate } from './convertDate.js';
 import mapMonths from './months.js';
 
-function remainingDays(dueDate) {
+export function remainingDays(dueDate, pastDateArr) {
 	let daysBetween = 0;
 	let curDate = convertDate();
-	let deadline = convertDueDate(dueDate);
+	let deadline;
+	if (pastDateArr) {
+		deadline = pastDateArr;
+	} else {
+		deadline = convertDueDate(dueDate);
+	}
 	const yearsBetweenDates = () => {
 		const deadlineYear = deadline.dueDate[2];
 		const curDateYear = curDate.date[2];
