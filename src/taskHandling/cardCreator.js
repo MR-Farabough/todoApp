@@ -5,34 +5,35 @@ import renderCards from './renderCards.js';
 
 export default function createCard(category, taskCategories) {
 	const storageArr = JSON.parse(localStorage.getItem('storage-array'));
-	function cardConstructor(index) {
+	const overdueArr = JSON.parse(localStorage.getItem('deleted-array'));
+	function cardConstructor(index, selectedStorageArr, storageArrKey) {
 		const div = document.createElement('div');
 		div.style.backgroundColor = 'white';
 		div.style.width = '95%';
 		div.style.margin = '10px';
 		div.style.borderRadius = '15px';
 		div.style.padding = '10px';
-		if (storageArr[index].priority == 'Not Prioritized') {
+		if (selectedStorageArr[index].priority == 'Not Prioritized') {
 			div.style.borderLeft = '8px solid green';
-		} else if (storageArr[index].priority == 'Important') {
+		} else if (selectedStorageArr[index].priority == 'Important') {
 			div.style.borderLeft = '8px solid orange';
-		} else if (storageArr[index].priority == 'URGENT') {
+		} else if (selectedStorageArr[index].priority == 'URGENT') {
 			div.style.borderLeft = '8px solid red';
 		}
 		div.style.justifyContent = 'space-evenly';
 		div.style.alignItems = 'center';
 		let title = document.createElement('h4');
-		title.textContent = storageArr[index].title;
+		title.textContent = selectedStorageArr[index].title;
 		let notes = document.createElement('p');
-		notes.textContent = storageArr[index].note;
+		notes.textContent = selectedStorageArr[index].note;
 		let dueDate = document.createElement('p');
-		dueDate = `Due Date: ${storageArr[index].dueDate} --- ${storageArr[index].daysLeft} left`;
+		dueDate = `Due Date: ${selectedStorageArr[index].dueDate} || ${selectedStorageArr[index].daysLeft} left`;
 		let priority = document.createElement('p');
-		priority.textContent = `Priority: ${storageArr[index].priority}`;
+		priority.textContent = `Priority: ${selectedStorageArr[index].priority}`;
 		let type = document.createElement('p');
-		type.textContent = `Type: ${storageArr[index].type}`;
+		type.textContent = `Type: ${selectedStorageArr[index].type}`;
 		let taskCategory = document.createElement('p');
-		taskCategory.textContent = storageArr[index].category;
+		taskCategory.textContent = selectedStorageArr[index].category;
 		if (taskCategory.innerHTML == 'Personal') {
 			taskCategory.style.backgroundColor = 'lightgreen';
 			taskCategory.style.padding = '5px';
@@ -48,10 +49,10 @@ export default function createCard(category, taskCategories) {
 		div.append(title, notes, dueDate, type, taskCategory, delBTN);
 		document.querySelector('.cards').append(div);
 		delBTN.addEventListener('click', () => {
-			const indexNum = storageArr.indexOf(storageArr[index]);
-			storageArr.splice(indexNum, 1);
+			const indexNum = selectedStorageArr.indexOf(selectedStorageArr[index]);
+			selectedStorageArr.splice(indexNum, 1);
 			div.remove();
-			localStorage.setItem('storage-array', JSON.stringify(storageArr));
+			localStorage.setItem(storageArrKey, JSON.stringify(selectedStorageArr));
 			document.querySelector('.cards').textContent = '';
 			renderCards(category, taskCategories);
 			document.querySelector(
@@ -65,16 +66,17 @@ export default function createCard(category, taskCategories) {
 		return;
 	} else {
 		// first chunk is for all categories
+		const overdueTaskArr = JSON.parse(localStorage.getItem('deleted-array'));
 		if (category == 'Total' && taskCategories == 'Total') {
 			for (let index = 0; index < storageArr.length; index++) {
-				cardConstructor(index);
+				cardConstructor(index, storageArr, 'storage-array');
 			}
 			return '';
 		} else if (category == 'Today' && taskCategories == 'Total') {
 			for (let index = 0; index < storageArr.length; index++) {
 				if (storageArr[index].daysLeft != 0) {
 				} else {
-					cardConstructor(index);
+					cardConstructor(index, storageArr, 'storage-array');
 				}
 			}
 			return '';
@@ -82,8 +84,13 @@ export default function createCard(category, taskCategories) {
 			for (let index = 0; index < storageArr.length; index++) {
 				if (daysLeft(storageArr[index].dueDate) > 7) {
 				} else {
-					cardConstructor(index);
+					cardConstructor(index, storageArr, 'storage-array');
 				}
+			}
+			return '';
+		} else if (category == 'Overdue' && taskCategories == 'Total') {
+			for (let index = 0; index < overdueTaskArr.length; index++) {
+				cardConstructor(index, overdueArr, 'deleted-array');
 			}
 			return '';
 		}
@@ -118,6 +125,13 @@ export default function createCard(category, taskCategories) {
 				}
 			}
 			return '';
+		} else if (category == 'Overdue' && taskCategories == 'Personal') {
+			if (overdueTaskArr != null) {
+				for (let index = 0; index < overdueTaskArr.length; index++) {
+					cardConstructor(index, overdueArr, 'deleted-array');
+				}
+			}
+			return '';
 		}
 		// Third Chunk is for school category
 		if (category == 'Total' && taskCategories == 'School') {
@@ -147,6 +161,13 @@ export default function createCard(category, taskCategories) {
 					} else {
 						cardConstructor(index);
 					}
+				}
+			}
+			return '';
+		} else if (category == 'Overdue' && taskCategories == 'School') {
+			if (overdueTaskArr != null) {
+				for (let index = 0; index < overdueTaskArr.length; index++) {
+					cardConstructor(index, overdueArr, 'deleted-array');
 				}
 			}
 			return '';

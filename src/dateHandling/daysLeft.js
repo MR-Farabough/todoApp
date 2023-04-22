@@ -4,22 +4,35 @@ import mapMonths from './months.js';
 export function remainingDays(dueDate, pastDateArr) {
 	let daysBetween = 0;
 	let curDate = convertDate();
-	let deadline;
+	let deadline = [];
 	if (pastDateArr) {
 		deadline = pastDateArr;
 	} else {
 		deadline = convertDueDate(dueDate);
 	}
 	const yearsBetweenDates = () => {
-		const deadlineYear = deadline.dueDate[2];
-		const curDateYear = curDate.date[2];
-		return deadlineYear - curDateYear;
+		console.log(
+			pastDateArr,
+			dueDate,
+			'pastDateArr || dueDate daysLeft.js line 14'
+		);
+		if (pastDateArr.length > 1) {
+			const deadlineYear = deadline[2];
+			const curDateYear = curDate.date[2];
+			return deadlineYear - curDateYear;
+		} else {
+			const deadlineYear = deadline.dueDate[2];
+			const curDateYear = curDate.date[2];
+			return deadlineYear - curDateYear;
+		}
 	};
-	const yearArr = mapMonths(
-		curDate.date,
-		deadline.dueDate,
-		yearsBetweenDates()
-	);
+	let yearArr = [];
+	if (pastDateArr) {
+		yearArr = mapMonths(curDate.date[2], deadline[2], yearsBetweenDates());
+	} else {
+		yearArr = mapMonths(curDate.date, deadline.dueDate, yearsBetweenDates());
+	}
+
 	for (let i = 0; i < yearArr.length; i++) {
 		let month = [
 			'January',
