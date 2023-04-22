@@ -270,6 +270,12 @@ html {
 	border-radius: 5px;
 }
 
+.overdue-taskEL:hover {
+	cursor: pointer;
+	background-color: var(--hover-category);
+	border-radius: 5px;
+}
+
 .header-icon-container > div > button:hover {
 	cursor: pointer;
 	background-color: var(--hover-category);
