@@ -9,16 +9,8 @@ import renderCards from './taskHandling/renderCards.js';
 import updateTaskCount from './taskHandling/taskCount.js';
 
 // Update due dates, time, and render cards
-console.log(
-	updateStorage(JSON.parse(localStorage.getItem('storage-array'))),
-	'null'
-);
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
-console.log(
-	JSON.parse(localStorage.getItem('storage-array')),
-	JSON.parse(localStorage.getItem('deleted-array')),
-	'localStorages index.js line 16'
-);
+console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
 getTime();
 renderCards('Total', 'Total');
 
@@ -50,7 +42,6 @@ let category = 'Total';
 const totalTaskBtn = document.querySelector('.total-taskEL');
 const todaysTaskBtn = document.querySelector('.todays-taskEL');
 const weeksTaskBtn = document.querySelector('.weeks-taskEL');
-const overdueTaskBTN = document.querySelector('.overdue-taskEL');
 const pageLocationEL = document.querySelector('.page-location');
 const cardsEL = document.querySelector('.cards');
 document.querySelector(
@@ -124,16 +115,6 @@ weeksTaskBtn.addEventListener('click', () => {
 	).textContent = `Total Tasks: ${updateTaskCount()}`;
 	checkEmpty();
 });
-overdueTaskBTN.addEventListener('click', () => {
-	category = 'Overdue';
-	pageLocationEL.textContent = `OverDue Tasks`;
-	cardsEL.textContent = '';
-	renderCards(category, taskCategories);
-	document.querySelector(
-		'.quote'
-	).textContent = `Total Tasks: ${updateTaskCount()}`;
-	checkEmpty();
-});
 
 // Submit BTN controls
 submitBTN.addEventListener('click', (e) => {
@@ -144,10 +125,7 @@ submitBTN.addEventListener('click', (e) => {
 		checkEmpty();
 		addToStorage(formValidation());
 		updateStorage(JSON.parse(localStorage.getItem('storage-array')));
-		console.log(
-			JSON.parse(localStorage.getItem('storage-array')),
-			'main storeage index.js 143'
-		);
+		console.log(JSON.parse(localStorage.getItem('storage-array')), 'log two');
 		cardsEL.textContent = '';
 		renderCards(category, taskCategories);
 		document.querySelector(

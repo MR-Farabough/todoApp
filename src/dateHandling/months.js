@@ -49,6 +49,7 @@ export default function mapMonths(startingDateArr, endingDateArr, yearCount) {
 			if (endingDateArr[0] === 12) {
 				months[month[11]] = endingDateArr[1];
 			} else {
+				const endingNumber = endingDateArr[1];
 				month.reverse();
 				for (let index = 0; index < month.length - endingDateArr[0]; index++) {
 					delete months[month[index]];
