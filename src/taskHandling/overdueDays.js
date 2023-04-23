@@ -54,7 +54,7 @@ export default function getOverdueDays(storageArr) {
 						localStorage.getItem('deleted-array') != null &&
 						localStorage.getItem('deleted-array') != []
 					) {
-						overdueArr = JSON.parse(localStorage.getItem('deleted-array'));
+						overdueArr.push(JSON.parse(localStorage.getItem('deleted-array')));
 					}
 				}
 			}
