@@ -5,12 +5,18 @@ import addToStorage from './storage/localStorage.js';
 import saveToText from './storage/saveToText.js';
 import updateStorage from './storage/updateStorage.js';
 import checkEmpty from './taskHandling/checkEmptyPage.js';
+import getOverdueDays from './taskHandling/overdueDays.js';
 import renderCards from './taskHandling/renderCards.js';
 import updateTaskCount from './taskHandling/taskCount.js';
 
 // Update due dates, time, and render cards
+getOverdueDays(JSON.parse(localStorage.getItem('storage-array')));
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
-console.log(JSON.parse(localStorage.getItem('storage-array')), 'Log One');
+console.log(
+	JSON.parse(localStorage.getItem('storage-array')),
+	JSON.parse(localStorage.getItem('deleted-array')),
+	'storageArr || deletedArr'
+);
 getTime();
 renderCards('Total', 'Total');
 
@@ -42,6 +48,7 @@ let category = 'Total';
 const totalTaskBtn = document.querySelector('.total-taskEL');
 const todaysTaskBtn = document.querySelector('.todays-taskEL');
 const weeksTaskBtn = document.querySelector('.weeks-taskEL');
+const overdueTaskBtn = document.querySelector('.overdue-taskEL');
 const pageLocationEL = document.querySelector('.page-location');
 const cardsEL = document.querySelector('.cards');
 document.querySelector(
@@ -108,6 +115,16 @@ todaysTaskBtn.addEventListener('click', () => {
 weeksTaskBtn.addEventListener('click', () => {
 	category = 'Weeks';
 	pageLocationEL.textContent = `Current Week`;
+	cardsEL.textContent = '';
+	renderCards(category, taskCategories);
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
+	checkEmpty();
+});
+overdueTaskBtn.addEventListener('click', () => {
+	category = 'Overdue';
+	pageLocationEL.textContent = `Overdue Tasks`;
 	cardsEL.textContent = '';
 	renderCards(category, taskCategories);
 	document.querySelector(

@@ -1,4 +1,3 @@
-import errorLog from '../errorLogger.js';
 import createCard from './cardCreator.js';
 import checkEmpty from './checkEmptyPage.js';
 

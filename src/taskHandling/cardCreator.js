@@ -99,7 +99,7 @@ export default function createCard(category, taskCategories) {
 			for (let index = 0; index < storageArr.length; index++) {
 				if (storageArr[index].category != 'Personal') {
 				} else {
-					cardConstructor(index);
+					cardConstructor(index, storageArr, 'storage-array');
 				}
 			}
 			return '';
@@ -109,7 +109,7 @@ export default function createCard(category, taskCategories) {
 				} else {
 					if (storageArr[index].daysLeft != 0) {
 					} else {
-						cardConstructor(index);
+						cardConstructor(index, storageArr, 'storage-array');
 					}
 				}
 			}
@@ -120,7 +120,7 @@ export default function createCard(category, taskCategories) {
 				} else {
 					if (daysLeft(storageArr[index].dueDate) > 7) {
 					} else {
-						cardConstructor(index);
+						cardConstructor(index, storageArr, 'storage-array');
 					}
 				}
 			}
@@ -138,7 +138,7 @@ export default function createCard(category, taskCategories) {
 			for (let index = 0; index < storageArr.length; index++) {
 				if (storageArr[index].category != 'School') {
 				} else {
-					cardConstructor(index);
+					cardConstructor(index, storageArr, 'storage-array');
 				}
 			}
 			return '';
@@ -148,7 +148,7 @@ export default function createCard(category, taskCategories) {
 				} else {
 					if (storageArr[index].daysLeft != 0) {
 					} else {
-						cardConstructor(index);
+						cardConstructor(index, storageArr, 'storage-array');
 					}
 				}
 			}
@@ -159,7 +159,7 @@ export default function createCard(category, taskCategories) {
 				} else {
 					if (daysLeft(storageArr[index].dueDate) > 7) {
 					} else {
-						cardConstructor(index);
+						cardConstructor(index, storageArr, 'storage-array');
 					}
 				}
 			}
