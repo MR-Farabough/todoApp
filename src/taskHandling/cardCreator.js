@@ -128,49 +128,55 @@ export default function createCard(category, taskCategories) {
 		} else if (category == 'Overdue' && taskCategories == 'Personal') {
 			if (overdueTaskArr != null) {
 				for (let index = 0; index < overdueTaskArr.length; index++) {
-					cardConstructor(index, overdueArr, 'deleted-array');
+					if (overdueArr[index].category != 'Personal') {
+					} else {
+						cardConstructor(index, overdueArr, 'deleted-array');
+					}
 				}
 			}
 			return '';
 		}
-		// Third Chunk is for school category
-		if (category == 'Total' && taskCategories == 'School') {
-			for (let index = 0; index < storageArr.length; index++) {
-				if (storageArr[index].category != 'School') {
+	}
+	// Third Chunk is for school category
+	if (category == 'Total' && taskCategories == 'School') {
+		for (let index = 0; index < storageArr.length; index++) {
+			if (storageArr[index].category != 'School') {
+			} else {
+				cardConstructor(index, storageArr, 'storage-array');
+			}
+		}
+		return '';
+	} else if (category == 'Today' && taskCategories == 'School') {
+		for (let index = 0; index < storageArr.length; index++) {
+			if (storageArr[index].category != 'School') {
+			} else {
+				if (storageArr[index].daysLeft != 0) {
 				} else {
 					cardConstructor(index, storageArr, 'storage-array');
 				}
 			}
-			return '';
-		} else if (category == 'Today' && taskCategories == 'School') {
-			for (let index = 0; index < storageArr.length; index++) {
-				if (storageArr[index].category != 'School') {
-				} else {
-					if (storageArr[index].daysLeft != 0) {
-					} else {
-						cardConstructor(index, storageArr, 'storage-array');
-					}
-				}
-			}
-			return '';
-		} else if (category == 'Weeks' && taskCategories == 'School') {
-			for (let index = 0; index < storageArr.length; index++) {
-				if (storageArr[index].category != 'School') {
-				} else {
-					if (daysLeft(storageArr[index].dueDate) > 7) {
-					} else {
-						cardConstructor(index, storageArr, 'storage-array');
-					}
-				}
-			}
-			return '';
-		} else if (category == 'Overdue' && taskCategories == 'School') {
-			if (overdueTaskArr != null) {
-				for (let index = 0; index < overdueTaskArr.length; index++) {
-					cardConstructor(index, overdueArr, 'deleted-array');
-				}
-			}
-			return '';
 		}
+		return '';
+	} else if (category == 'Weeks' && taskCategories == 'School') {
+		for (let index = 0; index < storageArr.length; index++) {
+			if (storageArr[index].category != 'School') {
+			} else {
+				if (daysLeft(storageArr[index].dueDate) > 7) {
+				} else {
+					cardConstructor(index, storageArr, 'storage-array');
+				}
+			}
+		}
+		return '';
+	} else if (category == 'Overdue' && taskCategories == 'School') {
+		if (overdueArr != null) {
+			for (let index = 0; index < overdueArr.length; index++) {
+				if (overdueArr[index].category != 'School') {
+				} else {
+					cardConstructor(index, overdueArr, 'storage-array');
+				}
+			}
+		}
+		return '';
 	}
 }

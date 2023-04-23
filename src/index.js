@@ -60,37 +60,6 @@ const homeButton = document.querySelector('.home-icon');
 const personalButton = document.querySelector('.personal-button');
 const schoolButton = document.querySelector('.school-button');
 let taskCategories = 'Total';
-homeButton.addEventListener('click', () => {
-	taskCategories = 'Total';
-	cardsEL.textContent = '';
-	renderCards(category, taskCategories);
-	document.querySelector(
-		'.quote'
-	).textContent = `Total Tasks: ${updateTaskCount()}`;
-	document.querySelector('.category-title').textContent = 'All Categories';
-	checkEmpty();
-});
-personalButton.addEventListener('click', () => {
-	taskCategories = 'Personal';
-	cardsEL.textContent = '';
-	renderCards(category, taskCategories);
-	document.querySelector(
-		'.quote'
-	).textContent = `Total Tasks: ${updateTaskCount()}`;
-	document.querySelector('.category-title').textContent = 'Personal Category';
-	checkEmpty();
-});
-
-schoolButton.addEventListener('click', () => {
-	taskCategories = 'School';
-	cardsEL.textContent = '';
-	renderCards(category, taskCategories);
-	document.querySelector(
-		'.quote'
-	).textContent = `Total Tasks: ${updateTaskCount()}`;
-	document.querySelector('.category-title').textContent = 'School Category';
-	checkEmpty();
-});
 
 totalTaskBtn.addEventListener('click', () => {
 	category = 'Total';
@@ -130,6 +99,38 @@ overdueTaskBtn.addEventListener('click', () => {
 	document.querySelector(
 		'.quote'
 	).textContent = `Total Tasks: ${updateTaskCount()}`;
+	checkEmpty();
+});
+
+homeButton.addEventListener('click', () => {
+	taskCategories = 'Total';
+	cardsEL.textContent = '';
+	renderCards(category, taskCategories);
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
+	document.querySelector('.category-title').textContent = 'All Categories';
+	checkEmpty();
+});
+personalButton.addEventListener('click', () => {
+	taskCategories = 'Personal';
+	cardsEL.textContent = '';
+	renderCards(category, taskCategories);
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
+	document.querySelector('.category-title').textContent = 'Personal Category';
+	checkEmpty();
+});
+
+schoolButton.addEventListener('click', () => {
+	taskCategories = 'School';
+	cardsEL.textContent = '';
+	renderCards(category, taskCategories);
+	document.querySelector(
+		'.quote'
+	).textContent = `Total Tasks: ${updateTaskCount()}`;
+	document.querySelector('.category-title').textContent = 'School Category';
 	checkEmpty();
 });
 
