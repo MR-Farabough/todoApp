@@ -50,15 +50,17 @@ export default function getOverdueDays(storageArr) {
 					overdueArr.push(storageArr[index]);
 				} else {
 					curTaskArr.push(storageArr[index]);
-					if (
-						localStorage.getItem('deleted-array') != null &&
-						localStorage.getItem('deleted-array') != []
-					) {
-						overdueArr.push(JSON.parse(localStorage.getItem('deleted-array')));
-					}
 				}
 			}
-			localStorage.setItem('deleted-array', JSON.stringify(overdueArr));
+			if (
+				overdueArr == [] &&
+				JSON.parse(localStorage.getItem('deleted-array')) != null
+			) {
+				overdueArr = JSON.parse(localStorage.getItem('deleted-array'));
+				localStorage.setItem('deleted-array', JSON.stringify(overdueArr));
+			} else if (overdueArr.length > 0) {
+				localStorage.setItem('deleted-array', JSON.stringify(overdueArr));
+			}
 			localStorage.setItem('storage-array', JSON.stringify(curTaskArr));
 		}
 	}
