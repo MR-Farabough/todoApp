@@ -35,10 +35,12 @@ saveBTN.addEventListener('click', () => {
 
 // Update overdue taskEL
 const overdueTaskEL = document.querySelector('.overdue-taskEL');
-if (JSON.parse(localStorage.getItem('deleted-array').length) > 0) {
-	overdueTaskEL.textContent = `Overdue Tasks  (${
-		JSON.parse(localStorage.getItem('deleted-array')).length
-	})`;
+if (JSON.parse(localStorage.getItem('deleted-array') != null)) {
+	if (JSON.parse(localStorage.getItem('deleted-array').length) > 0) {
+		overdueTaskEL.textContent = `Overdue Tasks  (${
+			JSON.parse(localStorage.getItem('deleted-array')).length
+		})`;
+	}
 }
 
 // Modal Control
