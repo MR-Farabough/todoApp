@@ -16,7 +16,7 @@
 		<div class="modal" id="modal">
 			<div class="modal-header">
 				<div class="title">
-					<h4>New Task</h4>
+					<h4 id="NewTaskHeader">New Task</h4>
 				</div>
 				<button data-close-button id="close-button">&times;</button>
 			</div>
@@ -48,15 +48,17 @@
 						<label for="Not-Prioritized">Not Prioritized</label>
 						<input type="radio" name="Priority" id="Not-Prioritized" />
 					</div>
-					<label for="task-modal">Type</label>
-					<select name="Type" id="type">
-						<option value="Task">Task</option>
-						<option value="Homework">Homework</option>
-						<option value="Assignment">Assignment</option>
-						<option value="Exam">Exam</option>
-						<option value="Final">Final</option>
-					</select>
-					<button type="submit" id="submit-task">Add Task</button>
+					<div>
+						<label for="task-modal">Type</label>
+						<select name="Type" id="type">
+							<option value="Task">Task</option>
+							<option value="Homework">Homework</option>
+							<option value="Assignment">Assignment</option>
+							<option value="Exam">Exam</option>
+							<option value="Final">Final</option>
+						</select>
+						<button type="submit" id="submit-task">Add Task</button>
+					</div>
 				</form>
 			</div>
 		</div>
