@@ -2,7 +2,7 @@ if (localStorage.getItem('storage-array') == null) {
 	localStorage.setItem('storage-array', '[]');
 }
 if (localStorage.getItem('deleted-array') == null) {
-	localStorage.setItem('storage-array', '[]');
+	localStorage.setItem('deleted-array', '[]');
 }
 
 import getTime from './dateHandling/getTime.js';
