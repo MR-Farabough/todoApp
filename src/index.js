@@ -10,10 +10,10 @@ import renderCards from './taskHandling/renderCards.js';
 import updateTaskCount from './taskHandling/taskCount.js';
 
 // Update due dates, time, and render cards
-if (JSON.parse(localStorage.getItem('storage-array').length) == null) {
+if (JSON.parse(localStorage.getItem('storage-array')) == null) {
 	localStorage.setItem('storage-array', '[]');
 }
-if (JSON.parse(localStorage.getItem('deleted-array').length) == null) {
+if (JSON.parse(localStorage.getItem('deleted-array')) == null) {
 	localStorage.setItem('storage-array', '[]');
 }
 getOverdueDays(JSON.parse(localStorage.getItem('storage-array')));
