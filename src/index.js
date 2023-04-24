@@ -26,6 +26,14 @@ saveBTN.addEventListener('click', () => {
 	saveToText();
 });
 
+// Update overdue taskEL
+const overdueTaskEL = document.querySelector('.overdue-taskEL');
+if (JSON.parse(localStorage.getItem('deleted-array').length) > 0) {
+	overdueTaskEL.textContent = `Overdue Tasks  (${
+		JSON.parse(localStorage.getItem('deleted-array')).length
+	})`;
+}
+
 // Modal Control
 const openModalButton = document.getElementById('new-task-button');
 const closeModalButton = document.getElementById('close-button');
@@ -34,6 +42,10 @@ const submitBTN = document.getElementById('submit-task');
 const modal = document.getElementById('modal');
 const overlay = document.getElementById('overlay');
 openModalButton.addEventListener('click', () => {
+	let modalHeader = document.getElementById('NewTaskHeader');
+	modalHeader.textContent = `New Task #${
+		JSON.parse(localStorage.getItem('storage-array')).length + 1
+	}`;
 	openModal(modal);
 });
 overlay.addEventListener('click', () => {

@@ -60,6 +60,20 @@ html {
 
 .modal-body {
 	padding: 10px 15px;
+	display: flex;
+	justify-content: center;
+	font-weight: bold;
+	margin: 5px;
+	border-radius: 15px;
+}
+
+#task-modal > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3px;
+	margin-top: 15px;
+	max-width: 300px;
 }
 
 #overlay {
@@ -70,7 +84,7 @@ html {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	pointer-events: none;
 }
 

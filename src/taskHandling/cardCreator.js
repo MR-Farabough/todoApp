@@ -58,6 +58,12 @@ export default function createCard(category, taskCategories) {
 			document.querySelector(
 				'.quote'
 			).textContent = `Total Tasks: ${updateTaskCount()}`;
+			const overdueTaskEL = document.querySelector('.overdue-taskEL');
+			if (JSON.parse(localStorage.getItem('deleted-array').length) > 0) {
+				overdueTaskEL.textContent = `Overdue Tasks  (${
+					JSON.parse(localStorage.getItem('deleted-array')).length
+				})`;
+			}
 			checkEmpty();
 		});
 	}
