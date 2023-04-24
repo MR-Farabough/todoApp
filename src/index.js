@@ -1,3 +1,10 @@
+if (localStorage.getItem('storage-array') == null) {
+	localStorage.setItem('storage-array', '[]');
+}
+if (localStorage.getItem('deleted-array') == null) {
+	localStorage.setItem('storage-array', '[]');
+}
+
 import getTime from './dateHandling/getTime.js';
 import formValidation from './modal/formValidation.js';
 import { openModal, closeModal } from './modal/modal.js';
@@ -10,12 +17,6 @@ import renderCards from './taskHandling/renderCards.js';
 import updateTaskCount from './taskHandling/taskCount.js';
 
 // Update due dates, time, and render cards
-if (localStorage.getItem('storage-array') == null) {
-	localStorage.setItem('storage-array', '[]');
-}
-if (localStorage.getItem('deleted-array') == null) {
-	localStorage.setItem('storage-array', '[]');
-}
 getOverdueDays(JSON.parse(localStorage.getItem('storage-array')));
 updateStorage(JSON.parse(localStorage.getItem('storage-array')));
 console.log(
