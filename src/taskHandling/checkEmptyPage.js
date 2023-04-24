@@ -16,7 +16,8 @@ export default function checkEmpty() {
 		];
 		const number = Math.floor(Math.random() * arrOfImages.length);
 		const img = new Image();
-		img.src = arrOfImages[number];
+		// img.src = arrOfImages[number];
+		img.src = 'imgs/allDoneCheck.png';
 		img.style.height = '35%';
 		img.style.width = '35%';
 		img.style.minHeight = '300px';
